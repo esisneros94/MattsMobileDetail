@@ -6,4 +6,8 @@
     <p>Use this area to provide additional information.</p>
 
     Hi, Christian!
+|^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ^ ||____
+| The      Truck!               |||""'|""\__,_      
+| ____________________ l||__|__|__|)        
+|(@)@)"""""""'''''''''''''**|(@)(@)*****|(@)    
 </asp:Content>
