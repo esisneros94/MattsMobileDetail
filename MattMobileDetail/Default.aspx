@@ -2,41 +2,199 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+    <!doctype html>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+    <head>
+        <style>
+            .Button {
+                width: 100%;
+                height: 50px;
+                border-radius: 12px;
+                transition-duration: 0.4s;
+                background-color: midnightblue;
+                color: white;
+            }
+
+                .Button:hover {
+                    background-color: dodgerblue;
+                    color: white;
+                }
+
+
+            .flip3D {
+                width: 240px;
+                height: 200px;
+                margin: 10px;
+                float: left;
+            }
+
+                .flip3D > .front {
+                    position: absolute;
+                    transform: perspective( 600px) rotateY( 0deg );
+                    background: #0682e0;
+                    width: 240px;
+                    height: 200px;
+                    text-align: center;
+                    border-radius: 7px;
+                    backface-visibility: hidden;
+                    transition: transform .5s linear 0s;
+                }
+
+                .flip3D > .frontSnapchat {
+                    position: absolute;
+                    transform: perspective( 600px) rotateY( 0deg );
+                    background: #ffff80;
+                    width: 240px;
+                    height: 200px;
+                    text-align: center;
+                    border-radius: 7px;
+                    backface-visibility: hidden;
+                    transition: transform .5s linear 0s;
+                }
+
+                .flip3D > .frontInstagram {
+                    position: absolute;
+                    transform: perspective( 600px) rotateY( 0deg );
+                    background: #a64dff;
+                    width: 240px;
+                    height: 200px;
+                    text-align: center;
+                    border-radius: 7px;
+                    backface-visibility: hidden;
+                    transition: transform .5s linear 0s;
+                }
+
+                .flip3D > .back {
+                    position: absolute;
+                    transform: perspective( 600px) rotateY( 180deg );
+                    background: #80BFFF;
+                    width: 240px;
+                    height: 200px;
+                    border-radius: 7px;
+                    backface-visibility: hidden;
+                    transition: transform .5s linear 0s;
+                }
+
+                .flip3D:hover > .front {
+                    transform: perspective( 600px) rotateY( -180deg );
+                    background: #ff0000;
+                }
+
+                .flip3D:hover > .frontSnapchat {
+                    transform: perspective( 600px) rotateY( -180deg );
+                    background: #ff0000;
+                }
+
+                .flip3D:hover > .frontInstagram {
+                    transform: perspective( 600px) rotateY( -180deg );
+                    background: #a64dff;
+                }
+
+                .flip3D:hover > .back {
+                    transform: perspective( 600px) rotateY( 0deg );
+                    background: #ff0000;
+                }
+
+            .MainSection {
+                background-color: lightgray;
+                background-size: cover;
+            }
+
+            .firstRow {
+                margin: 20px;
+                height: 250px;
+                background-color: white;
+            }
+
+            .secondRow {
+                margin: 10px 20px;
+                height: 50px;
+                background-color: white;
+            }
+
+            .secondRowButton {
+                margin: 10px 20px;
+                height: 50px;
+                background-color: lightgray;
+            }
+
+            .thirdRow {
+                margin: 20px;
+                height: 250px;
+            }
+        </style>
+
+    </head>
+
+
+    <body class="MainSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 firstRow">
+                    This is just a basic page.
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-8 firstRow">
+                    Just some more text
+
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 secondRowButton">
+                    <asp:Button ID="ScheduleButton" runat="server" CssClass="Button" Text="Schedule an Appointment" />
+                </div>
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-8 secondRow">
+                    Where the promos will go
+
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-3 thirdRow">
+                    <div class="flip3D">
+                        <div class="back">
+                            Top 3 favorite movies
+                        </div>
+                        <div class="front">Facebook</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 thirdRow">
+                    <div class="flip3D">
+                        <div class="back">
+                            Top 3 favorite movies
+                        </div>
+                        <div class="frontInstagram">Instagram</div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 thirdRow">
+                    <div class="flip3D">
+                        <div class="back">
+                            Top 3 favorite movies
+                        </div>
+                        <div class="frontSnapchat">Snapchat</div>
+                    </div>
+                </div>
+
+                <div class="col-md-1">
+                </div>
+            </div>
         </div>
-    </div>
+    </body>
+    </html>
 
 </asp:Content>
+
