@@ -19,6 +19,10 @@
                     background-color: dodgerblue;
                     color: white;
                 }
+
+            .ErrorMessage {
+                color: red;
+            }
         </style>
     </head>
     <body>
@@ -29,15 +33,24 @@
             <div>
                 <h3>Email:</h3>
                 <asp:TextBox ID="LoginEmail" Columns="80" MaxLength="80" Text="" runat="server" />
+
+                <asp:RequiredFieldValidator ID="requiredEmail" runat="server" ControlToValidate="LoginEmail" ErrorMessage="Please Enter an Email" Class="ErrorMessage">
+
+                </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpValidateEmail" runat="server" ErrorMessage="Email not in correct format" ControlToValidate="LoginEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
             </div>
 
             <div>
                 <h3>Password:</h3>
                 <asp:TextBox ID="LoginPW" type="password" Columns="32" MaxLength="16" Text="" runat="server" />
+                <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="LoginPW" ErrorMessage="Please enter your password" Class="ErrorMessage">
+
+                </asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegExPasswordCheck" runat="server" class="ErrorMessage" ErrorMessage="Password is invalid" ControlToValidate="LoginPW" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" />
             </div>
             <br />
             <br />
             <div>
-                <asp:Button ID="LoginUserButton" runat="server" Text="Login" Class="Button" />
+                <asp:Button ID="LoginUserButton" runat="server" Text="Login" Class="Button" OnClick="RedirectToFAQ" />
             </div>
 </asp:Content>

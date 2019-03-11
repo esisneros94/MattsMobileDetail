@@ -31,6 +31,24 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox LoginEmail;
         
         /// <summary>
+        /// requiredEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEmail;
+        
+        /// <summary>
+        /// RegularExpValidateEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpValidateEmail;
+        
+        /// <summary>
         /// LoginPW control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,24 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox LoginPW;
+        
+        /// <summary>
+        /// requiredPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredPassword;
+        
+        /// <summary>
+        /// RegExPasswordCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExPasswordCheck;
         
         /// <summary>
         /// LoginUserButton control.
