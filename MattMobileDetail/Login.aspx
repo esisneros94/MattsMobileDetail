@@ -40,17 +40,4 @@
             <div>
                 <asp:Button ID="LoginUserButton" runat="server" Text="Login" Class="Button" />
             </div>
-
-
-
-
-
-
-
-
-
-        </div>
-    </body>
-    </html>
-
 </asp:Content>
