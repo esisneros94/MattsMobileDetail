@@ -6,6 +6,7 @@
 
     <head>
         <style>
+           
             .Button {
                 width: 100%;
                 height: 50px;
@@ -126,7 +127,7 @@
     </head>
 
 
-    <body class="MainSection">
+    <body>
         <div class="container">
             <div class="row">
                 <div class="col-md-3 firstRow">
@@ -175,6 +176,7 @@
                     <div class="flip3D">
                         <div class="back">
                             Top 3 favorite movies
+                            Facebook https://www.facebook.com/MattsMobileDetailingABQ/
                         </div>
                         <div class="frontInstagram">Instagram</div>
                     </div>
@@ -185,11 +187,12 @@
                     <div class="flip3D">
                         <div class="back">
                             Top 3 favorite movies
+                            Instagram https://www.instagram.com/matts_mobile_detail/
                         </div>
                         <div class="frontSnapchat">Snapchat</div>
                     </div>
                 </div>
-
+                <%--YOUTUBE AND TWITTER ACCOUNTS AS WELL - waiting on links--%>
                 <div class="col-md-1">
                 </div>
             </div>
