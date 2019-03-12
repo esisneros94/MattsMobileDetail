@@ -108,7 +108,6 @@
 
             .secondRow {
                 margin: 10px 20px;
-                height: 50px;
                 background-color: white;
             }
 
@@ -145,13 +144,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 secondRowButton">
-                    <asp:Button ID="ScheduleButton" runat="server" CssClass="Button" Text="Schedule an Appointment" />
+                    <asp:Button ID="ScheduleButton" runat="server" CssClass="Button" Text="Schedule an Appointment" onClick="RedirectToScheduleAppointment"/>
                 </div>
                 <div class="col-md-1">
                 </div>
                 <div class="col-md-8 secondRow">
-                    Where the promos will go
+                    <asp:PlaceHolder ID="PromotionsSpace" runat="server"
+>
 
+                    </asp:PlaceHolder>
                 </div>
             </div>
         </div>
