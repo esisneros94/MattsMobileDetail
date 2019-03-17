@@ -16,6 +16,10 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
     <style>
+        .title{
+                color:darkblue;
+                text-align:center;
+            }
          ul {
                 list-style-type: none;
                 margin:auto;
@@ -87,8 +91,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/FAQ">About</a></li>
+                        <li><a runat="server" href="Services.aspx">Services</a></li>
                         <li><a runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/FAQ">FAQs</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li style="float:right"><a runat="server" href="~/Login">Login</a></li>
                     </ul>
@@ -101,6 +107,7 @@
             <hr />
             <footer class="footer">
                 <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
+                <p></p>
                 <p>Have questions? Check out the <a href="FAQ.aspx">FAQs</a></p>
                 <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
             </footer>

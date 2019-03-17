@@ -13,5 +13,10 @@ namespace MattMobileDetail
         {
 
         }
+
+        protected void ScheduleAppt_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ScheduleAppointment.aspx");
+        }
     }
 }
