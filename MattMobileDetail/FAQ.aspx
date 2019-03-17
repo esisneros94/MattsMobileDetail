@@ -47,13 +47,13 @@
                 <div>
                     <button type="button" class="Button" data-toggle="collapse" data-target="#demo">What are your Prices? </button>
                     <div id="demo" class="collapse">
-                        Prices range from $50 to $140 depending on what package is chosen. ADD LINK
+                        Prices range from $50 to $140 depending on what package is chosen. <a href="Services.aspx">Services Page</a>
                     </div>
                 </div>
                 <div>
                     <button type="button" class="Button" data-toggle="collapse" data-target="#demo2">What does each package include?</button>
                     <div id="demo2" class="collapse">
-                        Visit services page to see the specific package details. ADD LINK
+                        Visit services page to see the specific package details. <a href="Services.aspx">Services Page</a>
                     </div>
                 </div>
                 <div>
@@ -78,7 +78,7 @@
                     <button type="button" class="Button" data-toggle="collapse" data-target="#demo6">Do you detail on weekends? </button>
                     <div id="demo6" class="collapse">
                         Matt’s Mobile Detailing is open 7 days a week! Sun up to sundown. Check out the schedule an appointment page to see
-                        my weekly schedule. ADD LINK
+                        my weekly schedule. <a href="ScheduleAppointment.aspx">Appointment Page</a>
                     </div>
                 </div>
                 <div>

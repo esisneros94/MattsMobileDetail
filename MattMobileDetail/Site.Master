@@ -41,6 +41,16 @@
             .active{
                 background-color: dimgrey
             }
+            .footer{
+                position:fixed;
+                left:0;
+                bottom:0;
+                width:100%;
+                background-color:darkblue;
+                color:white;
+                text-align:center;
+            }
+
     </style>
 </head>
 <body>
@@ -89,8 +99,10 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            <footer class="footer">
+                <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
+                <p>Have questions? Check out the <a href="FAQ.aspx">FAQs</a></p>
+                <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
             </footer>
         </div>
 
