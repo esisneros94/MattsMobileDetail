@@ -53,4 +53,6 @@
             <div>
                 <asp:Button ID="LoginUserButton" runat="server" Text="Login" Class="Button" OnClick="RedirectToFAQ" />
             </div>
+        </body>
+    </html>
 </asp:Content>

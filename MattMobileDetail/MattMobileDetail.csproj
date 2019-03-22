@@ -163,6 +163,8 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Services.aspx" />
+    <Content Include="Services_MMD.png" />
     <Content Include="Site.Master" />
     <Content Include="SponsoredEvents.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -226,6 +228,13 @@
     </Compile>
     <Compile Include="ScheduleAppointment.aspx.designer.cs">
       <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

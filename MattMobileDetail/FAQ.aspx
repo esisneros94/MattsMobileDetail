@@ -32,64 +32,71 @@
 
     </head>
     <body>
+        <div class="title">
+            <h1>Frequently Asked Questions</h1>
+        </div>
         <div class="container" style="margin: 20px 0px;">
             <div class="row TitleRows">
                 <div>
-                    Have questions?
-                </div>
-            </div>
-            <div class="row TitleRows">
-                <div>
-                    Get some answers to what people ask us the most!
+                    Below are the most commonly asked questions, please follow up with Matt if your answer is not listed below.
                 </div>
             </div>
             <div class="row" style="border: 1px solid black;">
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo">What are your Prices? </button>
                     <div id="demo" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Prices range from $50 to $140 depending on what package is chosen. <a href="Services.aspx">Services Page</a>    <%--Would like to add space between FAQs--%>
+
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo2">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo2">What does each package include?</button>
                     <div id="demo2" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Visit services page to see the specific package details. <a href="Services.aspx">Services Page</a>
+                       <br />
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo3">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo3">Do you come to me? Or do I need to come to you? </button>
                     <div id="demo3" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Matt’s Mobile Detailing is completely mobile meaning we come to you!
+                        <br />
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo4">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo4">How long is it going to take?</button>
                     <div id="demo4" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        The Basic Detail usually takes around an hour and the Full Detail takes right around 2 hours depending on the condition.
+                        <br />
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo5">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo5">Do you accept card, cash, Venmo, apple pay? </button>
                     <div id="demo5" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        All forms of payment are accepted. There is a 4 percent credit card fee when paying through apple square.
+                        <br />
                     </div>
                 </div>
                 <div>
-                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo6">This will be a question</button>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo6">Do you detail on weekends? </button>
                     <div id="demo6" class="collapse">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Matt’s Mobile Detailing is open 7 days a week! Sun up to sundown. Check out the schedule an appointment page to see
+                        my weekly schedule. <a href="ScheduleAppointment.aspx">Appointment Page</a>
+                        <br />
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo7">How far do you travel to a detail? </button>
+                    <div id="demo7" class="collapse">
+                        Travel is usually within a 30-mile radius, although Matt has clients in Las Cruces, Santa Fe, and Belen.
+                        <br />
+                    </div>
+                </div>
+                <div>
+                    <button type="button" class="Button" data-toggle="collapse" data-target="#demo8">Is there a multiple car in one area discount? </button>
+                    <div id="demo8" class="collapse">
+                        Yes! If there are multiple cars in one area that need detailing same day a discount will be applied.
+                        <br />
                     </div>
                 </div>
             </div>

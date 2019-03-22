@@ -67,6 +67,47 @@
 
 
 
+    <style>
+        .title{
+                color:darkblue;
+                text-align:center;
+            }
+         ul {
+                list-style-type: none;
+                margin:auto;
+                padding: 0;
+                overflow: hidden;
+                background-color:darkblue;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color:white;
+                text-align:center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover{
+                background-color: dimgrey
+            }
+            .active{
+                background-color: dimgrey
+            }
+            .footer{
+                position:fixed;
+                left:0;
+                bottom:0;
+                width:100%;
+                background-color:darkblue;
+                color:white;
+                text-align:center;
+            }
+
+    </style>
 </head>
 <body>
     <form runat="server">
@@ -102,15 +143,12 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
+                        <li><a runat="server" href="Services.aspx">Services</a></li>
                         <li><a runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
-                        <li class="dropdown">
-                            <a class="dropbtn">Resources</a>
-                            <div class="dropdown-content">
-                                <a runat="server" href="~/Reviews">Reviews</a>
-                                <a runat="server" href="~/SponsoredEvents">Sponsered Events (Coming Soon)</a>
-                            </div>
-                        </li>
-                        <li><a runat="server" href="~/Login">Login</a></li>
+                        <li><a runat="server" href="~/About">About</a></li>
+                        <li><a runat="server" href="~/FAQ">FAQs</a></li>
+                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li style="float:right"><a runat="server" href="~/Login">Login</a></li>
                     </ul>
 
 
@@ -122,8 +160,11 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            <footer class="footer">
+                <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
+                <p></p>
+                <p>Have questions? Check out the <a href="FAQ.aspx">FAQs</a></p>
+                <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
             </footer>
         </div>
 
