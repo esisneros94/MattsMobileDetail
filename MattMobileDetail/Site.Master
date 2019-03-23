@@ -68,45 +68,53 @@
 
 
     <style>
-        .title{
-                color:darkblue;
-                text-align:center;
-            }
-         ul {
-                list-style-type: none;
-                margin:auto;
-                padding: 0;
-                overflow: hidden;
-                background-color:darkblue;
-            }
+        .title {
+            color: darkblue;
+            text-align: center;
+        }
 
-            li {
-                float: left;
-            }
+        ul {
+            list-style-type: none;
+            margin: auto;
+            padding: 0;
+            overflow: hidden;
+            background-color: darkblue;
+        }
+
+        li {
+            float: left;
+        }
 
             li a {
                 display: block;
-                color:white;
-                text-align:center;
+                color: white;
+                text-align: center;
                 padding: 14px 16px;
                 text-decoration: none;
             }
-            li a:hover{
-                background-color: dimgrey
-            }
-            .active{
-                background-color: dimgrey
-            }
-            .footer{
-                position:fixed;
-                left:0;
-                bottom:0;
-                width:100%;
-                background-color:darkblue;
-                color:white;
-                text-align:center;
-            }
 
+                li a:hover {
+                    background-color: dimgrey
+                }
+
+        .active {
+            background-color: dimgrey
+        }
+
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+        }
+
+        .navColor{
+            background-color: darkblue;
+            color: white !important;
+        }
     </style>
 </head>
 <body>
@@ -131,7 +139,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top navColor">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -139,20 +147,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Matt's Mobile Detail</a>
+                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detail</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="Services.aspx">Services</a></li>
-                        <li><a runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/FAQ">FAQs</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
-                        <li style="float:right"><a runat="server" href="~/Login">Login</a></li>
+                        <li><a class="navColor" runat="server" href="Services.aspx">Services</a></li>
+                        <li><a class="navColor" runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
+                        <li><a class="navColor" runat="server" href="~/About">About</a></li>
+                        <li><a class="navColor" runat="server" href="~/FAQ">FAQs</a></li>
+                        <li><a class="navColor" runat="server" href="~/Contact">Contact</a></li>
+                        <li><a class="navColor" runat="server" href="~/Login">Login</a></li>
                     </ul>
-
-
-
                 </div>
             </div>
         </div>

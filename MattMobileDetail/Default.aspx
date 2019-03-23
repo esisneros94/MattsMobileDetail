@@ -6,14 +6,14 @@
 
     <head>
         <style>
-           
             .Button {
                 width: 100%;
                 height: 50px;
                 border-radius: 12px;
                 transition-duration: 0.4s;
-                background-color: midnightblue;
+                background-color: green;
                 color: white;
+                align-content: center;
             }
 
                 .Button:hover {
@@ -105,22 +105,34 @@
                 margin: 20px;
                 height: 250px;
                 background-color: white;
+                border: 1px solid black;
             }
 
-            .secondRow {
-                margin: 10px 20px;
+            .firstRowPicture {
+                margin: 20px;
                 background-color: white;
             }
 
-            .secondRowButton {
-                margin: 10px 20px;
-                height: 50px;
-                background-color: lightgray;
+            .secondRow {
+                margin: 10px 0px;
+                background-color: white;
+                border: 1px solid black;
             }
+
+            .secondRowButton {
+                margin: 10px 0px;
+                margin-left: 60px;
+                height: 50px;
+                align-content: center;
+                }
 
             .thirdRow {
                 margin: 20px;
                 height: 250px;
+            }
+
+            .bordering {
+                border: 1px solid black;
             }
         </style>
 
@@ -130,12 +142,12 @@
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-3 firstRow">
-                    This is just a basic page.
+                <div class="col-md-3 firstRowPicture">
+                    <img src="Pictures/Matts Car Logo.jpg" style="width: 350px; height: 250px" />
                 </div>
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-8 firstRow">
+                <div class="col-md-7 firstRow">
                     Just some more text
 
                 </div>
@@ -145,15 +157,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 secondRowButton">
-                    <asp:Button ID="ScheduleButton" runat="server" CssClass="Button" Text="Schedule an Appointment" onClick="RedirectToScheduleAppointment"/>
+                    <asp:Button ID="ScheduleButton" runat="server" CssClass="Button" Text="Schedule an Appointment" OnClick="RedirectToScheduleAppointment" />
                 </div>
                 <div class="col-md-1">
                 </div>
-                <div class="col-md-8 secondRow">
-                    <asp:PlaceHolder ID="PromotionsSpace" runat="server"
->
+                <div class="col-md-7 secondRow">
+                    <h4 style="text-align: center; color: green">Current Promotions!!</h4>
 
-                    </asp:PlaceHolder>
+
+                    <asp:PlaceHolder ID="PromotionsSpace" runat="server"></asp:PlaceHolder>
                 </div>
             </div>
         </div>
@@ -165,7 +177,6 @@
                 <div class="col-md-3 thirdRow">
                     <div class="flip3D">
                         <div class="back">
-                            Top 3 favorite movies
                             Facebook https://www.facebook.com/MattsMobileDetailingABQ/
                         </div>
                         <div class="front">Facebook</div>
@@ -176,7 +187,6 @@
                 <div class="col-md-3 thirdRow">
                     <div class="flip3D">
                         <div class="back">
-                            Top 3 favorite movies
                             Instagram https://www.instagram.com/matts_mobile_detail/
                         </div>
                         <div class="frontInstagram">Instagram</div>
@@ -187,8 +197,6 @@
                 <div class="col-md-3 thirdRow">
                     <div class="flip3D">
                         <div class="back">
-                            Top 3 favorite movies
-                            
                         </div>
                         <div class="frontSnapchat">Snapchat</div>
                     </div>

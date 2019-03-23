@@ -133,6 +133,8 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
+    <Content Include="Pictures\Matts Car Logo.jpg" />
+    <Content Include="Pictures\Matts Writing Logo.jpg" />
     <Content Include="Reviews.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
