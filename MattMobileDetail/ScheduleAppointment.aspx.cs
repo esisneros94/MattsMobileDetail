@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -14,6 +15,8 @@ namespace MattMobileDetail
             if (!IsPostBack)
             {
                 AppointmentDate.Visible = false;
+                AppointmentInfo.Visible = false;
+                
             }
         }
 
@@ -28,13 +31,19 @@ namespace MattMobileDetail
             {
                 AppointmentDate.Visible = false;
             }
-            
+
         }
 
         protected void SaveDateToTextBox(object sender, EventArgs e)
         {
             DateSelected.Text = AppointmentDate.SelectedDate.ToShortDateString();
             AppointmentDate.Visible = false;
+        }
+        
+        protected void ProceedAppointmentButtonClick(object sender, EventArgs e)
+        {
+            AppointmentInfo.Visible = true;
+            AppointmentInfo.BackColor = Color.Aquamarine;
         }
     }
 }
