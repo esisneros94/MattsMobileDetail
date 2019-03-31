@@ -220,7 +220,7 @@
             </div>
         </div>
         <div id="ConfirmButtonWrapper" class="ButtonWrapper" style="margin: 20px 0px;">
-            <asp:Button ID="ConfirmButton" runat="server" Text="Submit Appointment Request" CssClass="Button" />
+            <asp:Button ID="ConfirmButton" runat="server" Text="Submit Appointment Request" CssClass="Button" OnClick="InsertAppointmentRequest"/>
         </div>
         </asp:Panel>
         </div>
