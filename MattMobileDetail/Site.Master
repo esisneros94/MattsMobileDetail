@@ -19,7 +19,7 @@
     <style>
         .dropbtn {
             color: white;
-            padding: 16px;
+            padding: 14px;
             font-size: 16px;
             border: none;
             background-color: darkblue;

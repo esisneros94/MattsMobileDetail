@@ -45,5 +45,18 @@ namespace MattMobileDetail
             AppointmentInfo.Visible = true;
             AppointmentInfo.BackColor = Color.Aquamarine;
         }
+
+        protected void DisplayReturningCustomerCars (object sender, EventArgs e)
+        {
+            if(PreviousCustomerVehicles.Visible == true)
+            {
+                PreviousCustomerVehicles.Visible = false;
+            }
+            else
+            {
+                PreviousCustomerVehicles.Visible = true;
+            }
+            
+        }
     }
 }

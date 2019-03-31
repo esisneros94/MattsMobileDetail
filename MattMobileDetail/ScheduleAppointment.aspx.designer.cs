@@ -13,67 +13,157 @@ namespace MattMobileDetail {
     public partial class ScheduleAppointment {
         
         /// <summary>
-        /// TextBox2 control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
         
         /// <summary>
-        /// TextBox3 control.
+        /// ReqFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqFirstName;
         
         /// <summary>
-        /// TextBox4 control.
+        /// LastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox LastName;
         
         /// <summary>
-        /// TextBox5 control.
+        /// ReqLastName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox5;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqLastName;
         
         /// <summary>
-        /// TextBox6 control.
+        /// CityOfResidence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox6;
+        protected global::System.Web.UI.WebControls.TextBox CityOfResidence;
         
         /// <summary>
-        /// TextBox7 control.
+        /// ReqCity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox7;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCity;
         
         /// <summary>
-        /// TextBox8 control.
+        /// CustomerState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox8;
+        protected global::System.Web.UI.WebControls.TextBox CustomerState;
+        
+        /// <summary>
+        /// ReqCustomerState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCustomerState;
+        
+        /// <summary>
+        /// CustomerZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CustomerZipCode;
+        
+        /// <summary>
+        /// ReqCustomerZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCustomerZip;
+        
+        /// <summary>
+        /// PhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhoneNumber;
+        
+        /// <summary>
+        /// ReqPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPhoneNumber;
+        
+        /// <summary>
+        /// EmailAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailAddress;
+        
+        /// <summary>
+        /// ReqEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqEmail;
+        
+        /// <summary>
+        /// IsPreviousCustomer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox IsPreviousCustomer;
+        
+        /// <summary>
+        /// PreviousCustomerVehicles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder PreviousCustomerVehicles;
+        
+        /// <summary>
+        /// PreviousCarList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList PreviousCarList;
         
         /// <summary>
         /// CarYear control.
@@ -85,6 +175,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox CarYear;
         
         /// <summary>
+        /// ReqCarYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCarYear;
+        
+        /// <summary>
         /// CarMake control.
         /// </summary>
         /// <remarks>
@@ -92,6 +191,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CarMake;
+        
+        /// <summary>
+        /// ReqCarMake control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCarMake;
         
         /// <summary>
         /// CarModel control.
@@ -103,31 +211,67 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox CarModel;
         
         /// <summary>
-        /// TextBox9 control.
+        /// ReqCarModel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox9;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCarModel;
         
         /// <summary>
-        /// TextBox10 control.
+        /// CarColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox10;
+        protected global::System.Web.UI.WebControls.TextBox CarColor;
         
         /// <summary>
-        /// TextBox11 control.
+        /// ReqCarColor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox11;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCarColor;
+        
+        /// <summary>
+        /// CarLicensePlateNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox CarLicensePlateNumber;
+        
+        /// <summary>
+        /// ReqLicensePlate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqLicensePlate;
+        
+        /// <summary>
+        /// LicensePlateState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LicensePlateState;
+        
+        /// <summary>
+        /// ReqLicensePlateState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqLicensePlateState;
         
         /// <summary>
         /// ProceedAppointmentButton control.
@@ -175,6 +319,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.Calendar AppointmentDate;
         
         /// <summary>
+        /// ReqAppointmentDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqAppointmentDate;
+        
+        /// <summary>
         /// AppointmentHour control.
         /// </summary>
         /// <remarks>
@@ -184,6 +337,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList AppointmentHour;
         
         /// <summary>
+        /// ReqAppointmentHour control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqAppointmentHour;
+        
+        /// <summary>
         /// AppointmentMinute control.
         /// </summary>
         /// <remarks>
@@ -191,6 +353,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList AppointmentMinute;
+        
+        /// <summary>
+        /// ReqAppointmentMinute control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqAppointmentMinute;
         
         /// <summary>
         /// AppointmentDayPart control.
@@ -211,6 +382,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox ServiceAddress;
         
         /// <summary>
+        /// ReqServiceAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqServiceAddress;
+        
+        /// <summary>
         /// ServiceCity control.
         /// </summary>
         /// <remarks>
@@ -218,6 +398,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ServiceCity;
+        
+        /// <summary>
+        /// ReqServiceCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqServiceCity;
         
         /// <summary>
         /// ServiceState control.
@@ -229,13 +418,31 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox ServiceState;
         
         /// <summary>
-        /// TextBox1 control.
+        /// ReqServiceState control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqServiceState;
+        
+        /// <summary>
+        /// ServiceZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ServiceZip;
+        
+        /// <summary>
+        /// ReqServiceZIP control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqServiceZIP;
         
         /// <summary>
         /// ConfirmButton control.
