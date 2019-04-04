@@ -24,7 +24,9 @@ namespace MattMobileDetail
 
         protected void RedirectToConfirmationPage(int AppointmentNumber)
         {
-            Response.Redirect("AppointmentConfirmation.aspx?Appointment=" + AppointmentNumber.ToString());
+            string EncryptedString = EncryptionSupplier.GetEncryptedQueryString(AppointmentNumber.ToString());
+
+            Response.Redirect("AppointmentConfirmation.aspx?Appointment=" + EncryptedString);
         }
 
         protected void ToggleCalendarControl(object sender, EventArgs e)

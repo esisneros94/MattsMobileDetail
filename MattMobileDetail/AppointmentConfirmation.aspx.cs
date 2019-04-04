@@ -13,7 +13,7 @@ namespace MattMobileDetail
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            String AppointmentID = Request.QueryString["Appointment"];
+            String AppointmentID = EncryptionSupplier.GetDecryptedQueryString(Request.QueryString["Appointment"].ToString());
 
             GatherAppointmentDetails(AppointmentID);
         }
