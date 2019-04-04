@@ -31,18 +31,17 @@
             <asp:ValidationSummary ID="LoginErrorSummary" runat="server" DisplayMode="List" ShowSummary="true" HeaderText="Please do the following: " class="ErrorMessage" />
 
             <div>
-                <h3>Email:</h3>
-                <asp:TextBox ID="LoginEmail" Columns="80" MaxLength="80" Text="" runat="server" />
+                <h3>Username:</h3>
+                <asp:TextBox ID="LoginEmail" Columns="80" MaxLength="80" Text="" runat="server" style="width: 800px;"/>
 
                 <asp:RequiredFieldValidator ID="requiredEmail" runat="server" ControlToValidate="LoginEmail" ErrorMessage="Please Enter an Email" Class="ErrorMessage">
 
                 </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpValidateEmail" runat="server" ErrorMessage="Email not in correct format" ControlToValidate="LoginEmail" ValidationExpression="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$" />
-            </div>
+                </div>
 
             <div>
                 <h3>Password:</h3>
-                <asp:TextBox ID="LoginPW" type="password" Columns="32" MaxLength="16" Text="" runat="server" />
+                <asp:TextBox ID="LoginPW" type="password" Columns="32" MaxLength="32" Text="" runat="server" style="width: 400px"/>
                 <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="LoginPW" ErrorMessage="Please enter your password" Class="ErrorMessage">
 
                 </asp:RequiredFieldValidator>

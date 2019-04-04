@@ -37,7 +37,7 @@ namespace MattMobileDetail
 
             if (reader.HasRows)
             {
-                Response.Redirect("FAQ.aspx");
+                Response.Redirect("Dashboard.aspx");
             }
             else
             {
