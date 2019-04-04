@@ -39,7 +39,6 @@
         </style>
     </head>
     <body>
-        <form action="AppointmentConfirmation.aspx" method="post">
         <div class="container" style="border: 1px solid black; margin: 20px 0px; background-color: lightgrey">
             <div class="row">
                 <div class="col-lg-5">
@@ -220,14 +219,12 @@
             </div>
         </div>
         <div id="ConfirmButtonWrapper" class="ButtonWrapper" style="margin: 20px 0px;">
-            <asp:Button ID="ConfirmButton" runat="server" Text="Submit Appointment Request" CssClass="Button" OnClick="InsertAppointmentRequest" PostBackUrl="~/AppointmentConfirmation.aspx"/>
+            <asp:Button ID="ConfirmButton" runat="server" Text="Submit Appointment Request" CssClass="Button" OnClick="InsertAppointmentRequest"/>
 
-            <input type="submit" />
         </div>
             </asp:Panel>
             </div>
-            </form>
-    </body>
+            </body>
     </html>
 
 

@@ -22,9 +22,9 @@ namespace MattMobileDetail
             }
         }
 
-        protected void RedirectToConfirmationPage()
+        protected void RedirectToConfirmationPage(int AppointmentNumber)
         {
-            Response.Redirect("AppointmentConfirmation.aspx");
+            Response.Redirect("AppointmentConfirmation.aspx?Appointment=" + AppointmentNumber.ToString());
         }
 
         protected void ToggleCalendarControl(object sender, EventArgs e)
@@ -94,9 +94,9 @@ namespace MattMobileDetail
             dbConnection.Close();
 
             InsertCustomerCar(CustomerID);
-            InsertAppointmentDetails(CustomerID, AppointmentTime);
+            int AppointmentNumber = InsertAppointmentDetails(CustomerID, AppointmentTime);
 
-            RedirectToConfirmationPage();
+            RedirectToConfirmationPage(AppointmentNumber);
 
             
         }
@@ -126,7 +126,7 @@ namespace MattMobileDetail
 
         }
 
-        private void InsertAppointmentDetails(int customerNumber, DateTime AppointmentTime)
+        private int InsertAppointmentDetails(int customerNumber, DateTime AppointmentTime)
         {
             DataSupplier Supplier = new DataSupplier();
             String connection = Supplier.GetConnectionInfo();
@@ -146,8 +146,10 @@ namespace MattMobileDetail
             command.Parameters.AddWithValue("@EventNotes", "");
 
             dbConnection.Open();
-            command.ExecuteScalar();
+            int AppointmentNumber = Convert.ToInt32(command.ExecuteScalar());
             dbConnection.Close();
+
+            return AppointmentNumber;
         }
 
         private DateTime AppointmentTimeBuilder(string DateSelected)
