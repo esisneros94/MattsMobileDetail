@@ -20,6 +20,7 @@
             }
             .button{
                 text-align:center;
+                width:auto;
             }
         </style>
     </head>
@@ -33,7 +34,7 @@
             <br />
         </div>
         <div class="button">
-            <asp:Button ID="ScheduleAppt" Text="Schedule An Appointment" runat="server" OnClick="ScheduleAppt_Click" ForeColor="White" BackColor="Green" />
+            <asp:Button ID="ScheduleAppt" Text="Schedule An Appointment" runat="server" OnClick="ScheduleAppt_Click" ForeColor="White" BackColor="Green" Width="195px" />
         </div>
     </body>
     </html>
