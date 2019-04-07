@@ -135,7 +135,7 @@
                                 <button class="dropbtn">Media</button>
                                 <div class="dropdown-content">
                                     <a href="Reviews.aspx">Reviews</a>
-                                    <a href="SponsoredEvents.aspx">Sponsered Events</a>
+                                    <a href="SponsoredEvents.aspx">Sponsored Events</a>
                                 </div>
                             </div>
 

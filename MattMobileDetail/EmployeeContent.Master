@@ -124,24 +124,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detail</a>
+                    <a class="navbar-brand  navColor" runat="server" href="~/Dashboard">Matt's Mobile Detailing Employee Portal</a> <%--Do we want the homepage or employee portal as the link --%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navColor" runat="server" href="Services.aspx">Services</a></li>
-                        <li><a class="navColor" runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">Media</button>
-                                <div class="dropdown-content">
-                                    <a href="Reviews.aspx">Reviews</a>
-                                    <a href="SponsoredEvents.aspx">Sponsered Events</a>
-                                </div>
-                            </div>
-
-                            <li><a class="navColor" runat="server" href="~/FAQ">FAQs</a></li>
-                        <li><a class="navColor" runat="server" href="~/Contact">Contact</a></li>
-                        <li><a class="navColor" runat="server" href="~/Login">Login</a></li>
+                        <li><a class="navColor" runat="server" href="~/Dashboard">Dashboard</a></li>
+                        <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
+                        <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
+                        <li><a class="navColor" runat="server" href="~/Promotions">Promotion Management</a></li>
+                        <li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>
             </div>
@@ -154,7 +145,6 @@
             <footer class="footer">
                 <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
                 <p></p>
-                <p>Have questions? Check out the <a href="FAQ.aspx">FAQs</a></p>
                 <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
             </footer>
         </div>
