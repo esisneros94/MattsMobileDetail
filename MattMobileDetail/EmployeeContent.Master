@@ -132,7 +132,7 @@
                         <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Promotions">Promotion Management</a></li>
-                        <li><a class="navColor" runat="server" href="~/Logout">Logout</li>
+                        <li>Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>
             </div>
