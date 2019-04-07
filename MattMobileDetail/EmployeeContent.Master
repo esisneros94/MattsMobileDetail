@@ -124,7 +124,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing Employee Portal</a>
+                    <a class="navbar-brand  navColor" runat="server" href="~/Dashboard">Matt's Mobile Detailing Employee Portal</a> <%--Do we want the homepage or employee portal as the link --%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -132,7 +132,7 @@
                         <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Promotions">Promotion Management</a></li>
-                        <li>Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
+                        <li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>
             </div>
