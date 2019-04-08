@@ -30,7 +30,7 @@
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Inventory Name">
+                <asp:TemplateField HeaderText="Item Name">
                     <ItemTemplate>
                         <asp:Label ID="InventoryName" Text='<%# Eval("Name") %>' runat="server" Width="200px" />
                     </ItemTemplate>
@@ -43,7 +43,7 @@
                 </asp:TemplateField>
 
 
-                <asp:TemplateField HeaderText="Inventory Description">
+                <asp:TemplateField HeaderText="Description">
                     <ItemTemplate>
                         <asp:Label ID="LabelPromoDescription" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
                     </ItemTemplate>
