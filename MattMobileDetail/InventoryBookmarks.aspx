@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="InventoryBookmarks.aspx.cs" Inherits="MattMobileDetail.InventoryBookmarks" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="InventoryBookmarks.aspx.cs" Inherits="MattMobileDetail.InventoryBookmarks" ValidateRequest="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <!DOCTYPE html>
     <html>

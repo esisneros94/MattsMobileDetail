@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace MattMobileDetail
 {
@@ -35,13 +36,15 @@ namespace MattMobileDetail
             dbConnection.Open();
             SqlDataReader reader = command.ExecuteReader();
 
-            if (reader.HasRows)
+            if (reader.HasRows == true)
             {
-                Response.Redirect("Dashboard.aspx");
+                //Response.Redirect("Dashboard.aspx");
+                FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
             }
             else
             {
-                Response.Write("No Login Information found");
+                FormsAuthentication.RedirectToLoginPage();
+                Response.Write("Invalid Username / Password Combination");
             }
 
             dbConnection.Close();

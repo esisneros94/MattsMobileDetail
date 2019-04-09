@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Transactions.aspx.cs" Inherits="MattMobileDetail.Transactions" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Transactions.aspx.cs" Inherits="MattMobileDetail.Transactions" ValidateRequest="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>

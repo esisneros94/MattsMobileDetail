@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SponsoredEvents.aspx.cs" Inherits="MattMobileDetail.SponsoredEvents" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SponsoredEvents.aspx.cs" Inherits="MattMobileDetail.SponsoredEvents" ValidateRequest="true" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <h1>Sponsored Events</h1>

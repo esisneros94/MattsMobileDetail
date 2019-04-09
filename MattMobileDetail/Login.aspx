@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MattMobileDetail.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="MattMobileDetail.Login" ValidateRequest="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
@@ -34,18 +34,15 @@
                 <h3>Username:</h3>
                 <asp:TextBox ID="LoginEmail" Columns="80" MaxLength="80" Text="" runat="server" style="width: 800px;"/>
 
-                <asp:RequiredFieldValidator ID="requiredEmail" runat="server" ControlToValidate="LoginEmail" ErrorMessage="Please Enter an Email" Class="ErrorMessage">
-
-                </asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="requiredEmail" runat="server" ControlToValidate="LoginEmail" ErrorMessage="Enter username" Class="ErrorMessage" />
+                <asp:RegularExpressionValidator runat="server" ID="regexUsername" ControlToValidate="LoginEmail" ErrorMessage="Invalid username" ValidationExpression="^[^<=*'>]+$" Class="ErrorMessage" /><br />
                 </div>
 
             <div>
                 <h3>Password:</h3>
                 <asp:TextBox ID="LoginPW" type="password" Columns="32" MaxLength="32" Text="" runat="server" style="width: 400px"/>
-                <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="LoginPW" ErrorMessage="Please enter your password" Class="ErrorMessage">
-
-                </asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegExPasswordCheck" runat="server" class="ErrorMessage" ErrorMessage="Password is invalid" ControlToValidate="LoginPW" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" />
+                <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="LoginPW" ErrorMessage="Enter password" Class="ErrorMessage" /> 
+                <asp:RegularExpressionValidator ID="RegExPasswordCheck" runat="server" class="ErrorMessage" ErrorMessage="Invalid password" ControlToValidate="LoginPW" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" />
             </div>
             <br />
             <br />
