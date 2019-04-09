@@ -28,9 +28,13 @@ namespace MattMobileDetail
             String PromotionConnection = supplier.GetConnectionInfo();
 
             SqlConnection dbConnection = new SqlConnection(PromotionConnection);
+            SqlCommand PopulatePromotions = new SqlCommand();
+            PopulatePromotions.Connection = dbConnection;
+            PopulatePromotions.CommandText = "exec PopulatePromotionsTable";
+            PopulatePromotions.CommandType = CommandType.Text;
 
             dbConnection.Open();
-            SqlDataAdapter PromotionInfo = new SqlDataAdapter("Select PromotionID, Name, Description, StartDate, EndDate From Promotions", dbConnection);
+            SqlDataAdapter PromotionInfo = new SqlDataAdapter(PopulatePromotions.CommandText, dbConnection);
             DataTable table = new DataTable();
             PromotionInfo.Fill(table);
             PromotionGridView.DataSource = table;
@@ -50,22 +54,25 @@ namespace MattMobileDetail
             {
                 String PromotionConnection = supplier.GetConnectionInfo();
 
-                using (SqlConnection conn = new SqlConnection(PromotionConnection))
-                {
-                    conn.Open();
-                    String Query = "Insert into Promotions(Name, Description, StartDate, EndDate) VALUES (@Name, @Description, @StartDate, @EndDate)";
-                    SqlCommand cmd = new SqlCommand(Query, conn);
-                    cmd.Parameters.AddWithValue("@Name", (PromotionGridView.FooterRow.FindControl("NewPromotionName") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Description", (PromotionGridView.FooterRow.FindControl("NewPromotionDescr") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@StartDate", (PromotionGridView.FooterRow.FindControl("NewStartDate") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@EndDate", (PromotionGridView.FooterRow.FindControl("NewPromotionEnd") as TextBox).Text.Trim());
+                SqlConnection InsertConnection = new SqlConnection(PromotionConnection);
+                SqlCommand InsertPromotion = new SqlCommand();
+                InsertPromotion.Connection = InsertConnection;
+                InsertPromotion.CommandText = "InsertNewPromotion";
+                InsertPromotion.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
-                    PopulateGridView();
-                    lblSucess.Text = "Insert successful";
-                    lblError.Text = "";
+                InsertPromotion.Parameters.AddWithValue("@Name", (PromotionGridView.FooterRow.FindControl("NewPromotionName") as TextBox).Text.Trim());
+                InsertPromotion.Parameters.AddWithValue("@Description", (PromotionGridView.FooterRow.FindControl("NewPromotionDescr") as TextBox).Text.Trim());
+                InsertPromotion.Parameters.AddWithValue("@StartDate", (PromotionGridView.FooterRow.FindControl("NewStartDate") as TextBox).Text.Trim());
+                InsertPromotion.Parameters.AddWithValue("@EndDate", (PromotionGridView.FooterRow.FindControl("NewPromotionEnd") as TextBox).Text.Trim());
 
-                }
+                InsertConnection.Open();
+                InsertPromotion.ExecuteNonQuery();
+                InsertConnection.Close();
+                PopulateGridView();
+                lblSucess.Text = "Insert successful";
+                lblError.Text = "";
+
+
             }
         }
 
