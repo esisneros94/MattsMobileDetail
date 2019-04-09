@@ -44,28 +44,29 @@ namespace MattMobileDetail
 
         protected void InventoryBookmarkGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
-
             if (e.CommandName.Equals("AddNew"))
             {
                 String InventoryBookmarkConnection = supplier.GetConnectionInfo();
 
-                using (SqlConnection conn = new SqlConnection(InventoryBookmarkConnection))
-                {
-                    conn.Open();
-                    String Query = "Insert into InventoryBookmark(UPC, Name, Vendor, URL) VALUES (@UPC, @Name, @Vendor, @URL)";
-                    SqlCommand cmd = new SqlCommand(Query, conn);
-                    cmd.Parameters.AddWithValue("@UPC", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Name", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Vendor", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkVendor") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@URL", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkURL") as TextBox).Text.Trim());
+                SqlConnection insertConnection = new SqlConnection(InventoryBookmarkConnection);
+                SqlCommand insertEstablishment = new SqlCommand();
+                insertEstablishment.Connection = insertConnection;
+                insertEstablishment.CommandText = "InsertInventoryBookmarkRecord";
+                insertEstablishment.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
-                    PopulateGridView();
-                    lblSucess.Text = "Insert successful";
-                    lblError.Text = "";
+                //String Query = "Insert into InventoryBookmark(UPC, Name, Vendor, URL) VALUES (@UPC, @Name, @Vendor, @URL)";
+                insertEstablishment.Parameters.AddWithValue("@UPC", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@Name", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@Vendor", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkVendor") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@URL", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkURL") as TextBox).Text.Trim());
 
-                }
+                insertConnection.Open();
+                insertEstablishment.ExecuteNonQuery();
+                InventoryBookmarkGridView.EditIndex = -1;
+                PopulateGridView();
+                lblSucess.Text = "Row Updated";
+                lblError.Text = "";
+                insertConnection.Close();
             }
         }
 
@@ -91,9 +92,9 @@ namespace MattMobileDetail
             updateEstablishment.CommandText = "UpdateInventoryBookmarkRecord";
             updateEstablishment.CommandType = CommandType.StoredProcedure;
 
-            updateEstablishment.Parameters.AddWithValue("@UPC", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventorykUPC") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@Name", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventorykName") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@Vendor", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("TextBoxInventoryBookmarkVendor") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@UPC", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryUPC") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@Name", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryName") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@Vendor", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryBookmarkVendor") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@URL", (InventoryBookmarkGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryBookmarkURL") as TextBox).Text.Trim());
             //updateEstablishment.Parameters.AddWithValue("@InventoryBookmarkID", Convert.ToInt32(InventoryBookmarkGridView.DataKeys[e.RowIndex].Value.ToString()));
 
