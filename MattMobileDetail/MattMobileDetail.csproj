@@ -135,6 +135,7 @@
     <Content Include="EmployeeContent.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inventory.aspx" />
+    <Content Include="InventoryBookmarks.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="NewPromotions.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
@@ -243,6 +244,13 @@
     </Compile>
     <Compile Include="Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InventoryBookmarks.aspx.cs">
+      <DependentUpon>InventoryBookmarks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventoryBookmarks.aspx.designer.cs">
+      <DependentUpon>InventoryBookmarks.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

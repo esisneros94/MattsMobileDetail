@@ -1,17 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="MattMobileDetail.Inventory" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="InventoryBookmarks.aspx.cs" Inherits="MattMobileDetail.InventoryBookmarks" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
     <div id="GridViewBacking" style="margin: 30px 0px; width: 100%; text-align: left; display: table">
 
-        <asp:GridView ID="InventoryGridView" runat="server" Style="margin: 15px; text-align: left; display: table"
+        <asp:GridView ID="InventoryBookmarkGridView" runat="server" Style="margin: 15px; text-align: left; display: table"
             AutoGenerateColumns="False"
             ShowFooter="True"
-            OnRowCommand="InventoryGridView_RowCommand"
+            OnRowCommand="InventoryBookmarkGridView_RowCommand"
             
-            OnRowEditing="InventoryGridView_RowEditing"
-            OnRowCancelingEdit="InventoryGridView_RowCancelingEdit"
-            OnRowUpdating="InventoryGridView_RowUpdating"
-            DataKeyNames="UPC" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+            OnRowEditing="InventoryBookmarkGridView_RowEditing"
+            OnRowCancelingEdit="InventoryBookmarkGridView_RowCancelingEdit"
+            OnRowUpdating="InventoryBookmarkGridView_RowUpdating"
+            DataKeyNames="URL" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
             <RowStyle Height="40px" />
             <FooterStyle Height="70px" />
             <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -42,66 +41,27 @@
                     </FooterTemplate>
                 </asp:TemplateField>
 
-
-                <asp:TemplateField HeaderText="Description">
+                <asp:TemplateField HeaderText="Vendor">
                     <ItemTemplate>
-                        <asp:Label ID="LabelPromoDescription" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
+                        <asp:Label ID="InventoryBookmarkVendor" Text='<%# Eval("Vendor") %>' runat="server" Width="200px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryDescription" TextMode="MultiLine" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
+                        <asp:TextBox ID="txtBoxInventoryBookmarkVendor" Text='<%# Eval("Vendor") %>' runat="server" Width="200px" />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryDescr" TextMode="MultiLine" runat="server" Width="300px" />
+                        <asp:TextBox ID="NewInventoryBookmarkVendor" runat="server" Width="200px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Is For Sale">
+                <asp:TemplateField HeaderText="URL">
                     <ItemTemplate>
-                        <asp:Label ID="InventoryForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
+                        <asp:Label ID="InventoryBookmarkURL" Text='<%# Eval("URL") %>' runat="server" Width="200px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtBoxInventoryForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
+                        <asp:TextBox ID="txtBoxInventoryBookmarkURL" Text='<%# Eval("URL") %>' runat="server" Width="200px" />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryForSale" runat="server" Width="200px" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Quantity">
-                    <ItemTemplate>
-                        <asp:Label ID="InventoryQuantity" Text='<%# Eval("Quantity") %>' runat="server" Width="200px" />
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBoxInventoryQuantity" Text='<%# Eval("Quantity") %>' runat="server" Width="200px" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryQuantity" runat="server" Width="200px" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Inventory Start Date">
-                    <ItemTemplate>
-                        <asp:Label ID="LabelPromoStart" Text='<%# Eval("StartDate") %>' runat="server" Width="250px" />
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryStart" Text='<%# Eval("StartDate") %>' runat="server" Width="250px" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="NewStartDate" runat="server" Width="250px" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-
-
-                <asp:TemplateField HeaderText="Inventory End Date">
-                    <ItemTemplate>
-                        <asp:Label ID="LabelPromoDescriptionEnd" Text='<%# Eval("EndDate") %>' runat="server" Width="250px" />
-                    </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryEnd" Text='<%# Eval("EndDate") %>' runat="server" Width="250px" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryEnd" runat="server" Width="250px" />
+                        <asp:TextBox ID="NewInventoryBookmarkURL" runat="server" Width="200px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -138,3 +98,4 @@
     </div>
 
 </asp:Content>
+

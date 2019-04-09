@@ -10,16 +10,16 @@
 namespace MattMobileDetail {
     
     
-    public partial class Inventory {
+    public partial class InventoryBookmarks {
         
         /// <summary>
-        /// InventoryGridView control.
+        /// InventoryBookmarkGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView InventoryGridView;
+        protected global::System.Web.UI.WebControls.GridView InventoryBookmarkGridView;
         
         /// <summary>
         /// lblSucess control.
