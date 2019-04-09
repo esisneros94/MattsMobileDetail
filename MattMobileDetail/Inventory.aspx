@@ -1,6 +1,41 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="MattMobileDetail.Inventory" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+        <!DOCTYPE html>
+    <html>
+    <head>
+        <style>
+            .AppointmentContent {
+                height: 250px;
+                background-color: lightblue;
+            }
 
+            .ErrorMessage {
+                color: red;
+            }
+
+            .ButtonWrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .Button {
+                width: 100%;
+                height: 50px;
+                border-radius: 12px;
+                transition-duration: 0.4s;
+                background-color: green;
+                color: white;
+                align-content: center;
+            }
+
+                .Button:hover {
+                    background-color: dodgerblue;
+                    color: white;
+                }
+        </style>
+    </head>
     <div id="GridViewBacking" style="margin: 30px 0px; width: 100%; text-align: left; display: table">
 
         <asp:GridView ID="InventoryGridView" runat="server" Style="margin: 15px; text-align: left; display: table"
@@ -21,9 +56,10 @@
                 <asp:TemplateField HeaderText="UPC">
                     <ItemTemplate>
                         <asp:Label ID="InventoryUPC" Text='<%# Eval("UPC") %>' runat="server" Width="200px" />
-                    </ItemTemplate>
+                        </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryUPC" Text='<%# Eval("UPC") %>' runat="server" Width="200px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryUPC" ID="ReqUPC" ErrorMessage="Enter a UPC" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryUPC" runat="server" Width="200px" />
@@ -36,6 +72,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryName" Text='<%# Eval("Name") %>' runat="server" Width="200px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryName" ID="ReqName" ErrorMessage="Enter a Name" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryName" runat="server" Width="200px" />
@@ -48,22 +85,24 @@
                         <asp:Label ID="LabelPromoDescription" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryDescription" TextMode="MultiLine" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
+                        <asp:TextBox ID="txtBoxInventoryDescription" TextMode="MultiLine" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryDescription" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryDescr" TextMode="MultiLine" runat="server" Width="300px" />
+                        <asp:TextBox ID="NewInventoryDescription" TextMode="MultiLine" runat="server" Width="300px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Is For Sale">
                     <ItemTemplate>
-                        <asp:Label ID="InventoryForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
+                        <asp:Label ID="InventoryIsForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtBoxInventoryForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
+                        <asp:TextBox ID="txtBoxInventoryIsForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="200px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryIsForSale" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryForSale" runat="server" Width="200px" />
+                        <asp:TextBox ID="NewInventoryIsForSale" runat="server" Width="200px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -73,6 +112,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryQuantity" Text='<%# Eval("Quantity") %>' runat="server" Width="200px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryQuantity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryQuantity" runat="server" Width="200px" />
@@ -84,10 +124,11 @@
                         <asp:Label ID="LabelPromoStart" Text='<%# Eval("StartDate") %>' runat="server" Width="250px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryStart" Text='<%# Eval("StartDate") %>' runat="server" Width="250px" />
+                        <asp:TextBox ID="txtBoxInventoryStartDate" Text='<%# Eval("StartDate") %>' runat="server" Width="250px" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryStartDate" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage"/>
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewStartDate" runat="server" Width="250px" />
+                        <asp:TextBox ID="NewInventoryStartDate" runat="server" Width="250px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -98,10 +139,10 @@
                         <asp:Label ID="LabelPromoDescriptionEnd" Text='<%# Eval("EndDate") %>' runat="server" Width="250px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="TextBoxInventoryEnd" Text='<%# Eval("EndDate") %>' runat="server" Width="250px" />
+                        <asp:TextBox ID="txtBoxInventoryEndDate" Text='<%# Eval("EndDate") %>' runat="server" Width="250px" />
                     </EditItemTemplate>
                     <FooterTemplate>
-                        <asp:TextBox ID="NewInventoryEnd" runat="server" Width="250px" />
+                        <asp:TextBox ID="NewInventoryEndDate" runat="server" Width="250px" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -136,5 +177,5 @@
         <asp:Label ID="lblError" Text="" runat="server" ForeColor="Red" />
 
     </div>
-
+        </html>
 </asp:Content>

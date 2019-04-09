@@ -37,11 +37,6 @@ namespace MattMobileDetail
             InventoryGridView.DataBind();
         }
 
-        protected void SelectAInventory(object sender, EventArgs e)
-        {
-            int InventoryID = Convert.ToInt32((sender as LinkButton).CommandArgument);
-        }
-
         protected void InventoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
@@ -50,25 +45,29 @@ namespace MattMobileDetail
             {
                 String InventoryConnection = supplier.GetConnectionInfo();
 
-                using (SqlConnection conn = new SqlConnection(InventoryConnection))
-                {
-                    conn.Open();
-                    String Query = "Insert into Inventory(UPC, Name, Description, IsForSale, Quantity, StartDate, EndDate) VALUES (@UPC, @Name, @Description, @IsForSale, @Quantity, @StartDate, @EndDate)";
-                    SqlCommand cmd = new SqlCommand(Query, conn);
-                    cmd.Parameters.AddWithValue("@UPC", (InventoryGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Name", (InventoryGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Description", (InventoryGridView.FooterRow.FindControl("NewInventoryDescr") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@IsForSale", (InventoryGridView.FooterRow.FindControl("NewInventoryForSale") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@Quantity", (InventoryGridView.FooterRow.FindControl("NewInventoryQuantity") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@StartDate", (InventoryGridView.FooterRow.FindControl("NewStartDate") as TextBox).Text.Trim());
-                    cmd.Parameters.AddWithValue("@EndDate", (InventoryGridView.FooterRow.FindControl("NewInventoryEnd") as TextBox).Text.Trim());
+                SqlConnection insertConnection = new SqlConnection(InventoryConnection);
+                SqlCommand insertEstablishment = new SqlCommand();
+                insertEstablishment.Connection = insertConnection;
+                insertEstablishment.CommandText = "InsertInventoryItem";
+                insertEstablishment.CommandType = CommandType.StoredProcedure;
 
-                    cmd.ExecuteNonQuery();
-                    PopulateGridView();
-                    lblSucess.Text = "Insert successful";
-                    lblError.Text = "";
+                //String Query = "Insert into Inventory(UPC, Name, Description, IsForSale, Quantity, StartDate, EndDate) VALUES (@UPC, @Name, @Description, @IsForSale, @Quantity, @StartDate, @EndDate)";
+                //SqlCommand cmd = new SqlCommand(Query, conn);
+                insertEstablishment.Parameters.AddWithValue("@UPC", (InventoryGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@Name", (InventoryGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@Description", (InventoryGridView.FooterRow.FindControl("NewInventoryDescription") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@IsForSale", (InventoryGridView.FooterRow.FindControl("NewInventoryIsForSale") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@Quantity", (InventoryGridView.FooterRow.FindControl("NewInventoryQuantity") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@StartDate", (InventoryGridView.FooterRow.FindControl("NewInventoryStartDate") as TextBox).Text.Trim());
+                insertEstablishment.Parameters.AddWithValue("@EndDate", (InventoryGridView.FooterRow.FindControl("NewInventoryEndDate") as TextBox).Text.Trim());
 
-                }
+                insertConnection.Open();
+                insertEstablishment.ExecuteNonQuery();
+                InventoryGridView.EditIndex = -1;
+                PopulateGridView();
+                lblSucess.Text = "Row Updated";
+                lblError.Text = "";
+                insertConnection.Close();
             }
         }
 
@@ -91,16 +90,16 @@ namespace MattMobileDetail
             SqlConnection updateConnection = new SqlConnection(InventoryConnection);
             SqlCommand updateEstablishment = new SqlCommand();
             updateEstablishment.Connection = updateConnection;
-            updateEstablishment.CommandText = "UpdateInventoryRecord";
+            updateEstablishment.CommandText = "UpdateInventoryItem";
             updateEstablishment.CommandType = CommandType.StoredProcedure;
 
             updateEstablishment.Parameters.AddWithValue("@UPC", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryUPC") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@Name", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryName") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@Description", (InventoryGridView.Rows[e.RowIndex].FindControl("TextBoxInventoryDescription") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@IsForSale", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryForSale") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@Description", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryDescription") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@IsForSale", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryIsForSale") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@Quantity", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryQuantity") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@StartDate", (InventoryGridView.Rows[e.RowIndex].FindControl("TextBoxInventoryStart") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@EndDate", (InventoryGridView.Rows[e.RowIndex].FindControl("TextBoxInventoryEnd") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@StartDate", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryStartDate") as TextBox).Text.Trim());
+            updateEstablishment.Parameters.AddWithValue("@EndDate", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryEndDate") as TextBox).Text.Trim());
             //updateEstablishment.Parameters.AddWithValue("@InventoryID", Convert.ToInt32(InventoryGridView.DataKeys[e.RowIndex].Value.ToString()));
 
             updateConnection.Open();
