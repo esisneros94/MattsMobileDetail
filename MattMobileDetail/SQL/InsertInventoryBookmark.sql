@@ -1,56 +1,51 @@
+
+
 CREATE Procedure [dbo].[InsertInventoryBookmark]
-    @UNC     varchar(60)
-    ,@Name          varchar(100)
+    @UPC     varchar(60)
     ,@Vendor       varchar(100)
     ,@URL         varchar(1000)
 
 as
 
-
 --Validate All Inputs
-    @CleanUNC     varchar(60)
-    ,@CleanName          varchar(100)
+    DECLARE
+	@CleanUPC     varchar(60)
     ,@CleanVendor       varchar(100)
     ,@CleanURL         varchar(1000)
 
 
-Set @CleanUNC              = LTRIM(RTRIM(@UNC));
-Set @CleanName             = LTRIM(RTRIM(@Name));
+Set @CleanUPC              = trim(REPLACE(@UPC, ' ', ''));
 Set @CleanVendor      = LTRIM(RTRIM(@Vendor));
-Set @CleanURL       = trim(REPLACE(@URL));
+Set @CleanURL       = trim(REPLACE(@URL, ' ', ''));
 
-if(@CleanUNC like '%[%;:+@*]%')
+if(@CleanUPC like '%[%;:+@*=]%')
 BEGIN
-    Print 'Invalid UNC'
+    Print 'Invalid UPC'
     Return
 END
-if(@CleanName like '%[%;:+@*]%')
-BEGIN
-    Print 'Invalid Item Name'
-    Return
-END
-if(@CleanVendor like '%[%;:+@*]%')
+if(@CleanVendor like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid Vendor'
     Return
 END
-if(@CleanURL like '%[%;:+@*]%')
+if(@CleanURL like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid For Sale Status'
     Return
 END
 
-
-If exists (Select Inventory.UPC, Inventory.Name, InventoryBookmark.Vendor, InventoryBookmark.URL From Inventory, InventoryBookmark Where Inventory.UPC = InventoryBookmark.UPC)
+-- we need to add in the if statment to check if vendor exists in DB
+-- If exists (Select Vendor From Vendors where Vendor = @CleanVendor
+If exists (Select IB.UPC, IB.Vendor, IB.URL From MobileDetail..InventoryBookmark as IB Where UPC = @CleanUPC AND IB.URL = @CleanURL)
     BEGIN
-        Print 'Item is already listed in the inventory bookmark database'
+        Print 'Invalid request'
         return;
     END
 Else
     BEGIN
         BEGIN TRY
-            Insert into Inventory (UPC, Name, Vendor, URL)
-            Values (@CleanUPC, @CleanName, @CleanVendor, @CleanURL)
+            Insert into InventoryBookmark (UPC, Vendor, URL)
+            Values (@CleanUPC, @CleanVendor, @CleanURL)
         END TRY
         BEGIN CATCH
             Print 'Something went wrong buddy'

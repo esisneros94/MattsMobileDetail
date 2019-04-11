@@ -51,12 +51,11 @@ namespace MattMobileDetail
                 SqlConnection insertConnection = new SqlConnection(InventoryBookmarkConnection);
                 SqlCommand insertEstablishment = new SqlCommand();
                 insertEstablishment.Connection = insertConnection;
-                insertEstablishment.CommandText = "InsertInventoryBookmarkRecord";
+                insertEstablishment.CommandText = "InsertInventoryBookmark";
                 insertEstablishment.CommandType = CommandType.StoredProcedure;
 
                 //String Query = "Insert into InventoryBookmark(UPC, Name, Vendor, URL) VALUES (@UPC, @Name, @Vendor, @URL)";
                 insertEstablishment.Parameters.AddWithValue("@UPC", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
-                insertEstablishment.Parameters.AddWithValue("@Name", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
                 insertEstablishment.Parameters.AddWithValue("@Vendor", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkVendor") as TextBox).Text.Trim());
                 insertEstablishment.Parameters.AddWithValue("@URL", (InventoryBookmarkGridView.FooterRow.FindControl("NewInventoryBookmarkURL") as TextBox).Text.Trim());
 

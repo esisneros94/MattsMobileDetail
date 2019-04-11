@@ -10,6 +10,7 @@ as
 
 
 --Validate All Inputs
+DECLARE
     @CleanUNC     varchar(60)
     ,@CleanName          varchar(100)
     ,@CleanDescription       varchar(100)
@@ -19,45 +20,45 @@ as
     ,@CleanEndDate    date
 
 
-Set @CleanUNC              = LTRIM(RTRIM(@UNC));
+Set @CleanUNC              = trim(REPLACE(@UNC,' ',''));
 Set @CleanName             = LTRIM(RTRIM(@Name));
 Set @CleanDescription      = LTRIM(RTRIM(@Description));
-Set @CleanIsForSale       = trim(REPLACE(@IsForSale));
-Set @CleanQuantity        = trim(REPLACE(@Quantity));
-Set @CleanStartDate         =trim(REPLACE(@StartDate));
-Set @CleanEndDate           =trim(REPLACE(@EndDate));
+Set @CleanIsForSale       = trim(REPLACE(@IsForSale,' ',''));
+Set @CleanQuantity        = trim(REPLACE(@Quantity,' ',''));
+Set @CleanStartDate         =trim(REPLACE(@StartDate,' ',''));
+Set @CleanEndDate           =trim(REPLACE(@EndDate,' ',''));
 
-if(@CleanUNC like '%[%;:+@*]%')
+if(@CleanUNC like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid UNC'
     Return
 END
-if(@CleanName like '%[%;:+@*]%')
+if(@CleanName like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid Item Name'
     Return
 END
-if(@CleanDescription like '%[%;:+@*]%')
+if(@CleanDescription like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid Description'
     Return
 END
-if(@CleanIsForSale like '%[%;:+@*]%')
+if(@CleanIsForSale like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid For Sale Status'
     Return
 END
-if(@CleanQuantity like '%[%;:+@*]%')
+if(@CleanQuantity like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid Quantity'
     Return
 END
-if(@CleanStartDate like '%[%;:+@*]%')
+if(@CleanStartDate like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid Start Date'
     Return
 END
-if(@CleanEndDate like '%[%;:+@*]%')
+if(@CleanEndDate like '%[%;:+@*=]%')
 BEGIN
     Print 'Invalid End Date'
     Return
