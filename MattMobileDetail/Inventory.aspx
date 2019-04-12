@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Inventory.aspx.cs" Inherits="MattMobileDetail.Inventory" ValidateRequest="true" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-        <!DOCTYPE html>
+    <!DOCTYPE html>
     <html>
     <head>
         <style>
@@ -36,13 +37,14 @@
                 }
         </style>
     </head>
-    <div id="GridViewBacking" style="margin: 30px 0px; width: 100%; text-align: left; display: table">
+    <div id="GridViewBacking" style="margin: 20px 0px; width: 100%; text-align: left; display: table">
+
+        <h3>Items in Inventory </h3>
 
         <asp:GridView ID="InventoryGridView" runat="server" Style="margin: 15px; text-align: left; display: table"
             AutoGenerateColumns="False"
             ShowFooter="True"
             OnRowCommand="InventoryGridView_RowCommand"
-            
             OnRowEditing="InventoryGridView_RowEditing"
             OnRowCancelingEdit="InventoryGridView_RowCancelingEdit"
             OnRowUpdating="InventoryGridView_RowUpdating"
@@ -56,14 +58,14 @@
                 <asp:TemplateField HeaderText="UPC">
                     <ItemTemplate>
                         <asp:Label ID="InventoryUPC" Text='<%# Eval("UPC") %>' runat="server" Width="100px" />
-                        </ItemTemplate>
+                    </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryUPC" Text='<%# Eval("UPC") %>' runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryUPC" ID="ReqUPC" ErrorMessage="Enter a UPC" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryUPC" ID="ReqUPC" ErrorMessage="Enter a UPC" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryUPC" runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryUPC" ID="ReqUPC" ErrorMessage="Enter a UPC" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryUPC" ID="ReqUPC" ErrorMessage="Enter a UPC" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -73,11 +75,11 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryName" Text='<%# Eval("Name") %>' runat="server" Width="200px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryName" ID="ReqName" ErrorMessage="Enter a Name" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryName" ID="ReqName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryName" runat="server" Width="200px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryName" ID="ReqName" ErrorMessage="Enter a Name" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryName" ID="ReqName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -88,11 +90,11 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryDescription" TextMode="MultiLine" Text='<%# Eval("Description") %>' runat="server" Width="300px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryDescription" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryDescription" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryDescription" TextMode="MultiLine" runat="server" Width="300px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryDescription" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryDescription" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -102,11 +104,11 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryIsForSale" Text='<%# Eval("IsForSale") %>' runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryIsForSale" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryIsForSale" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryIsForSale" runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryIsForSale" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryIsForSale" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -116,11 +118,11 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryQuantity" Text='<%# Eval("Quantity") %>' runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryQuantity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryQuantity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryQuantity" runat="server" Width="100px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryQuantity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryQuantity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -130,11 +132,11 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtBoxInventoryStartDate" Text='<%# Eval("StartDate") %>' runat="server" Width="200px" />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryStartDate" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBoxInventoryStartDate" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="NewInventoryStartDate" runat="server" Width="200px" />
-                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryStartDate" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage"/>
+                        <asp:RequiredFieldValidator runat="server" ValidationGroup="Insert" ControlToValidate="NewInventoryStartDate" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage" />
                     </FooterTemplate>
                 </asp:TemplateField>
 
@@ -176,18 +178,85 @@
             <SortedDescendingCellStyle BackColor="#CAC9C9" />
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
- 
+
 
         <br />
         <asp:Label ID="lblSucess" Text="" runat="server" ForeColor="Green" />
         <br />
         <asp:Label ID="lblError" Text="" runat="server" ForeColor="Red" />
 
-        <asp:ValidationSummary runat="server" ValidationGroup="Insert" ForeColor="Red" ID="PromotionsValidationSummary" DisplayMode="BulletList"/>
-        <asp:ValidationSummary runat="server" ForeColor="Red" ID="UpdatePromotionsSummary" DisplayMode="BulletList"/>
-    
-</div>
+        <asp:ValidationSummary runat="server" ValidationGroup="Insert" ForeColor="Red" ID="PromotionsValidationSummary" DisplayMode="BulletList" />
+        <asp:ValidationSummary runat="server" ForeColor="Red" ID="UpdatePromotionsSummary" DisplayMode="BulletList" />
 
-   
-        </html>
+    </div>
+    <h4>Inventory Bookmarks</h4>
+    <div id="wrapper" style="width: 100%; margin: 20px 0px;">
+        <div id="GridViewBacking2" style="float: left; margin-bottom: 100px;">
+
+            <asp:GridView ID="InventoryBookmarkGridView" runat="server"
+                AutoGenerateColumns="False"
+                DataKeyNames="URL" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+                <RowStyle Height="40px" />
+                <AlternatingRowStyle BackColor="#DCDCDC" />
+
+                <Columns>
+
+                    <asp:HyperLinkField DataNavigateUrlFields="URL" HeaderText="URL" Text="Go Here" />
+                    <asp:BoundField DataField="UPC" HeaderText="UPC" SortExpression="UPC" />
+                    <asp:BoundField DataField="Name" HeaderText="Item Name" SortExpression="Name" />
+                    <asp:BoundField DataField="Vendor" HeaderText="Vendor Name" SortExpression="Vendor" />
+
+                </Columns>
+                <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
+                <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#000065" />
+            </asp:GridView>
+        </div>
+
+        <div id="BookmarkManipulation" style="float: right; border: 1px solid black;">
+            Please select an Item to work with:
+            <asp:DropDownList ID="DropDownItems" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownItems_SelectedIndexChanged" />
+            <br />
+            <br />
+            Item Selected:
+            <asp:Label ID="ItemSelected" runat="server" /><br />
+            <br />
+            Add Bookmark for this Item:
+            <asp:RadioButton ID="YesToAdding" runat="server" AutoPostBack="true" OnCheckedChanged="HideUpdateBookmark" />
+
+            Update Bookmark for this Item:
+            <asp:RadioButton ID="YesToUpdating" runat="server" AutoPostBack="true" OnCheckedChanged="HideAddBookmark" />
+            <br />
+            <br />
+            <asp:Panel ID="SpecifyAvendor" runat="server" Visible="false">
+                <asp:Label ID="VendorName" runat="server" Text="Sepcify A Vendor" />
+                <asp:DropDownList ID="DropDownUpdateVendor" runat="server" />
+                <br />
+                <br />
+            </asp:Panel>
+
+
+            <asp:Panel ID="VendorInfoSection" runat="server" Visible="false">
+                Vendor:<asp:TextBox ID="TextBoxVendor" runat="server" visable="false" />
+                <br />
+                <br />
+
+            </asp:Panel>
+            <asp:Panel ID="URLPanel" runat="server" Visible="false">
+                URL:<asp:TextBox ID="TextBoxUrl" runat="server" visable="false" />
+                <br />
+                <br />
+
+            </asp:Panel>
+
+            <asp:Button ID="SubmitURLForIventoryItem" runat="server" OnClick="SubmitInventoryBookmark" Text="Submit Link for Inventory Item" Style="width: 300px; margin-left: 170px;" />
+
+        </div>
+    </div>
+    </html>
 </asp:Content>

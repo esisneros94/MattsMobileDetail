@@ -12,15 +12,16 @@ namespace MattMobileDetail
     public partial class Inventory : System.Web.UI.Page
     {
         DataSupplier supplier = new DataSupplier();
-    
+        public string selectedItem;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 PopulateGridView();
+                PopulateBookMarkGridView();
+                PopulateItemstoBookmarkEdit();
             }
-
         }
 
         private void PopulateGridView()
@@ -37,6 +38,42 @@ namespace MattMobileDetail
             InventoryGridView.DataBind();
         }
 
+        private void PopulateItemstoBookmarkEdit()
+        {
+            String InventoryConnection = supplier.GetConnectionInfo();
+
+            SqlConnection dbConnection = new SqlConnection(InventoryConnection);
+            dbConnection.Open();
+            SqlDataAdapter ActiveInventoryList = new SqlDataAdapter("Select UPC, Name From Inventory where StartDate <= getdate() and ((EndDate > getdate()) or EndDate is null)", dbConnection);
+            DataTable table = new DataTable();
+            ActiveInventoryList.Fill(table);
+            DropDownItems.DataSource = table;
+            DropDownItems.DataBind();
+            DropDownItems.DataTextField = "Name";
+            DropDownItems.DataValueField = "UPC";
+            DropDownItems.DataBind();
+            DropDownItems.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
+
+        }
+
+        private void PopulateVendorNametoBookmarkEdit(string UPC)
+        {
+            String InventoryConnection = supplier.GetConnectionInfo();
+            SqlConnection dbConnection = new SqlConnection(InventoryConnection);
+            dbConnection.Open();
+
+            SqlDataAdapter ActiveInventoryList = new SqlDataAdapter("Select Vendor From InventoryBookmark where UPC = '" + UPC + "'", dbConnection);
+            DataTable table = new DataTable();
+            ActiveInventoryList.Fill(table);
+            DropDownUpdateVendor.DataSource = table;
+            DropDownUpdateVendor.DataBind();
+            DropDownUpdateVendor.DataTextField = "Vendor";
+            DropDownUpdateVendor.DataValueField = "Vendor";
+            DropDownUpdateVendor.DataBind();
+
+        }
+
+
         protected void InventoryGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
@@ -51,8 +88,6 @@ namespace MattMobileDetail
                 insertEstablishment.CommandText = "InsertInventoryItem";
                 insertEstablishment.CommandType = CommandType.StoredProcedure;
 
-                //String Query = "Insert into Inventory(UPC, Name, Description, IsForSale, Quantity, StartDate, EndDate) VALUES (@UPC, @Name, @Description, @IsForSale, @Quantity, @StartDate, @EndDate)";
-                //SqlCommand cmd = new SqlCommand(Query, conn);
                 insertEstablishment.Parameters.AddWithValue("@UPC", (InventoryGridView.FooterRow.FindControl("NewInventoryUPC") as TextBox).Text.Trim());
                 insertEstablishment.Parameters.AddWithValue("@Name", (InventoryGridView.FooterRow.FindControl("NewInventoryName") as TextBox).Text.Trim());
                 insertEstablishment.Parameters.AddWithValue("@Description", (InventoryGridView.FooterRow.FindControl("NewInventoryDescription") as TextBox).Text.Trim());
@@ -100,8 +135,7 @@ namespace MattMobileDetail
             updateEstablishment.Parameters.AddWithValue("@Quantity", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryQuantity") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@StartDate", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryStartDate") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@EndDate", (InventoryGridView.Rows[e.RowIndex].FindControl("txtBoxInventoryEndDate") as TextBox).Text.Trim());
-            //updateEstablishment.Parameters.AddWithValue("@InventoryID", Convert.ToInt32(InventoryGridView.DataKeys[e.RowIndex].Value.ToString()));
-
+            
             updateConnection.Open();
             updateEstablishment.ExecuteNonQuery();
             InventoryGridView.EditIndex = -1;
@@ -110,6 +144,134 @@ namespace MattMobileDetail
             lblError.Text = "";
             updateConnection.Close();
 
+        }
+        private void PopulateBookMarkGridView()
+        {
+            String InventoryBookmarkConnection = supplier.GetConnectionInfo();
+
+            SqlConnection dbConnection = new SqlConnection(InventoryBookmarkConnection);
+
+            dbConnection.Open();
+            SqlDataAdapter InventoryBookmarkInfo = new SqlDataAdapter("Select i.UPC, i.Name, ib.Vendor ,ib.URL From Inventory as i join InventoryBookmark as ib on ib.UPC = i.UPC", dbConnection);
+            DataTable table = new DataTable();
+            InventoryBookmarkInfo.Fill(table);
+            InventoryBookmarkGridView.DataSource = table;
+            InventoryBookmarkGridView.DataBind();
+        }
+
+        protected void SelectAInventoryBookmark(object sender, EventArgs e)
+        {
+            int InventoryBookmarkID = Convert.ToInt32((sender as LinkButton).CommandArgument);
+        }
+
+        protected void AddNewInventoryBookmark(string UPC, string vendor, string URL)
+        {
+            String InventoryBookmarkConnection = supplier.GetConnectionInfo();
+
+            SqlConnection insertConnection = new SqlConnection(InventoryBookmarkConnection);
+            SqlCommand insertEstablishment = new SqlCommand();
+            insertEstablishment.Connection = insertConnection;
+            insertEstablishment.CommandText = "InsertInventoryBookmark";
+            insertEstablishment.CommandType = CommandType.StoredProcedure;
+
+            insertEstablishment.Parameters.AddWithValue("@UPC", UPC);
+            insertEstablishment.Parameters.AddWithValue("@Vendor", vendor);
+            insertEstablishment.Parameters.AddWithValue("@URL", URL);
+
+            insertConnection.Open();
+            insertEstablishment.ExecuteNonQuery();
+            InventoryBookmarkGridView.EditIndex = -1;
+            PopulateGridView();
+            insertConnection.Close();
+        }
+
+
+        protected void UpdateInventoryBookmark(string UPC, string vendor, string URL)
+        {
+            String InventoryBookmarkConnection = supplier.GetConnectionInfo();
+
+            SqlConnection updateConnection = new SqlConnection(InventoryBookmarkConnection);
+            SqlCommand updateEstablishment = new SqlCommand();
+            updateEstablishment.Connection = updateConnection;
+            updateEstablishment.CommandText = "UpdateInventoryBookmark";
+            updateEstablishment.CommandType = CommandType.StoredProcedure;
+
+            updateEstablishment.Parameters.AddWithValue("@UPC", UPC);
+            updateEstablishment.Parameters.AddWithValue("@Vendor", vendor);
+            updateEstablishment.Parameters.AddWithValue("@URL", URL);
+
+            updateConnection.Open();
+            updateEstablishment.ExecuteNonQuery();
+            InventoryBookmarkGridView.EditIndex = -1;
+            PopulateGridView();
+            updateConnection.Close();
+
+        }
+
+        protected void DropDownItems_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedItem = DropDownItems.SelectedItem.ToString();
+            PopulateVendorNametoBookmarkEdit(DropDownItems.SelectedValue);
+            PopulateItemstoBookmarkEdit();
+            ItemSelected.Text = selectedItem;
+        }
+
+        protected void HideUpdateBookmark(object sender, EventArgs e)
+        {
+            YesToUpdating.Checked = false;
+            VendorInfoSection.Visible = true;
+            URLPanel.Visible = true;
+
+        }
+        protected void HideAddBookmark(object sender, EventArgs e)
+        {
+            YesToAdding.Checked = false;
+            SpecifyAvendor.Visible = true;
+            VendorInfoSection.Visible = false;
+            URLPanel.Visible = true;
+            PopulateVendorNametoBookmarkEdit(DropDownItems.SelectedValue);
+        }
+
+        protected void SubmitInventoryBookmark(object sender, EventArgs e)
+        {
+            bool isAddChecked = YesToAdding.Checked;
+            bool isUpdatedChecked = YesToUpdating.Checked;
+            string itemSelected = ItemSelected.Text;
+            string URLInsertValue = TextBoxUrl.Text;
+            string InsertVendor = TextBoxVendor.Text;
+            string SelectedVendor = DropDownUpdateVendor.SelectedValue.ToString();
+            string productUpc = LookUpIventoryItem(itemSelected);
+
+
+            if (isAddChecked == true && isUpdatedChecked == false)
+            {
+                AddNewInventoryBookmark(productUpc, InsertVendor, URLInsertValue);
+                PopulateBookMarkGridView();
+            }
+            else if (isAddChecked == false && isUpdatedChecked == true)
+            {
+                UpdateInventoryBookmark(productUpc, SelectedVendor, URLInsertValue);
+                PopulateBookMarkGridView();
+            }
+
+        }
+
+        protected string LookUpIventoryItem(string Name)
+        {
+            String InventoryBookmarkConnection = supplier.GetConnectionInfo();
+
+            SqlConnection searchConnection = new SqlConnection(InventoryBookmarkConnection);
+            SqlCommand findUPCNumber  = new SqlCommand();
+
+            findUPCNumber.Connection = searchConnection;
+            findUPCNumber.CommandText = "Select upc from Inventory where name = '" + Name + "'";
+            findUPCNumber.CommandType = CommandType.Text;
+
+            searchConnection.Open();
+            string UPC = Convert.ToString(findUPCNumber.ExecuteScalar());
+            searchConnection.Close();
+
+            return UPC;
         }
     }
 }

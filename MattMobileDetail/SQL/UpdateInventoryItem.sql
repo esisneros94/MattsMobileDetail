@@ -1,4 +1,5 @@
-Create Procedure [dbo].[UpdateInventoryItem]
+
+ALTER Procedure [dbo].[UpdateInventoryItem]
    @UPC     varchar(60)
     ,@Name          varchar(100)
     ,@Description       varchar(100)
