@@ -41,7 +41,7 @@
 
         <h3>Items in Inventory </h3>
 
-        <asp:GridView ID="InventoryGridView" runat="server" Style="margin: 15px; text-align: left; display: table"
+        <asp:GridView ID="InventoryGridView" runat="server"
             AutoGenerateColumns="False"
             ShowFooter="True"
             OnRowCommand="InventoryGridView_RowCommand"
@@ -219,42 +219,43 @@
         </div>
 
         <div id="BookmarkManipulation" style="float: right; border: 1px solid black;">
-            Please select an Item to work with:
-            <asp:DropDownList ID="DropDownItems" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownItems_SelectedIndexChanged" />
+            Please select an Item to work with: <asp:DropDownList ID="DropDownItems" enableViewStateMode="True" ValidationGroup="InsertBookmark" runat="server" AutoPostBack="true" OnSelectedIndexChanged="DropDownItems_SelectedIndexChanged" />
+            <asp:RequiredFieldValidator InitialValue="0" ID="RequiredItemDropDown" ValidationGroup="InsertBookmark" runat="server" ControlToValidate="DropDownItems" Text="*" ErrorMessage="ErrorMessage"></asp:RequiredFieldValidator>
             <br />
             <br />
-            Item Selected:
-            <asp:Label ID="ItemSelected" runat="server" /><br />
+            Item Selected: <asp:Label ID="ItemSelected" runat="server" /><br />
             <br />
-            Add Bookmark for this Item:
-            <asp:RadioButton ID="YesToAdding" runat="server" AutoPostBack="true" OnCheckedChanged="HideUpdateBookmark" />
+            Add Bookmark for this Item: <asp:RadioButton ID="YesToAdding" runat="server" Checked="true" AutoPostBack="true" OnCheckedChanged="HideUpdateBookmark" />
 
-            Update Bookmark for this Item:
-            <asp:RadioButton ID="YesToUpdating" runat="server" AutoPostBack="true" OnCheckedChanged="HideAddBookmark" />
+            Update Bookmark for this Item: <asp:RadioButton ID="YesToUpdating" runat="server" Checked="false" AutoPostBack="true" OnCheckedChanged="HideAddBookmark" />
             <br />
             <br />
             <asp:Panel ID="SpecifyAvendor" runat="server" Visible="false">
-                <asp:Label ID="VendorName" runat="server" Text="Sepcify A Vendor" />
-                <asp:DropDownList ID="DropDownUpdateVendor" runat="server" />
+                <asp:Label ID="VendorName" runat="server" Text="Specify A Vendor" />
+                <asp:DropDownList ID="DropDownUpdateVendor" ValidationGroup="InsertBookmark" runat="server" />
+                <asp:RequiredFieldValidator runat="server" ValidationGroup="InsertBookmark" ControlToValidate="TextBoxUrl" ID="RequiredFieldValidator1" ErrorMessage="Select a vendor from the list" CssClass="ErrorMessage" />
                 <br />
                 <br />
             </asp:Panel>
 
-
-            <asp:Panel ID="VendorInfoSection" runat="server" Visible="false">
-                Vendor:<asp:TextBox ID="TextBoxVendor" runat="server" visable="false" />
+            <asp:Panel ID="VendorInfoSection" runat="server" Visible="true">
+                Vendor:<asp:TextBox ID="TextBoxVendor" runat="server"/>
+                <asp:RequiredFieldValidator runat="server" ValidationGroup="InsertBookmark" ControlToValidate="TextBoxUrl" ID="RequiredVendorInput" ErrorMessage="Enter the new vendor" CssClass="ErrorMessage" />
                 <br />
                 <br />
-
-            </asp:Panel>
-            <asp:Panel ID="URLPanel" runat="server" Visible="false">
-                URL:<asp:TextBox ID="TextBoxUrl" runat="server" visable="false" />
-                <br />
-                <br />
-
             </asp:Panel>
 
-            <asp:Button ID="SubmitURLForIventoryItem" runat="server" OnClick="SubmitInventoryBookmark" Text="Submit Link for Inventory Item" Style="width: 300px; margin-left: 170px;" />
+            <asp:Panel ID="URLPanel" runat="server" Visible="true">
+                URL:<asp:TextBox ID="TextBoxUrl" runat="server" ValidationGroup="InsertBookmark" visable="false" />
+                <asp:RequiredFieldValidator runat="server" ValidationGroup="InsertBookmark" ControlToValidate="TextBoxUrl" ID="ReqStartDate" ErrorMessage="Enter a Link to your product" CssClass="ErrorMessage" />
+                <br />
+                <br />
+            </asp:Panel>
+
+            <asp:Button ID="SubmitURLForIventoryItem" runat="server" OnClick="SubmitInventoryBookmark" ValidationGroup="InsertBookmark" CausesValidation="true" Text="Submit Link for Inventory Item" Style="width: 300px; margin-left: 170px;" />
+            
+            <asp:ValidationSummary runat="server" ValidationGroup="InsertBookmark" ForeColor="Red" ID="BookmarkValidationSummary" DisplayMode="BulletList" />
+
 
         </div>
     </div>

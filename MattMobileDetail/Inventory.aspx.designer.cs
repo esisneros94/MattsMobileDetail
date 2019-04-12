@@ -76,6 +76,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList DropDownItems;
         
         /// <summary>
+        /// RequiredItemDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredItemDropDown;
+        
+        /// <summary>
         /// ItemSelected control.
         /// </summary>
         /// <remarks>
@@ -130,6 +139,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList DropDownUpdateVendor;
         
         /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
         /// VendorInfoSection control.
         /// </summary>
         /// <remarks>
@@ -146,6 +164,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxVendor;
+        
+        /// <summary>
+        /// RequiredVendorInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredVendorInput;
         
         /// <summary>
         /// URLPanel control.
@@ -166,6 +193,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox TextBoxUrl;
         
         /// <summary>
+        /// ReqStartDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqStartDate;
+        
+        /// <summary>
         /// SubmitURLForIventoryItem control.
         /// </summary>
         /// <remarks>
@@ -173,5 +209,14 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitURLForIventoryItem;
+        
+        /// <summary>
+        /// BookmarkValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary BookmarkValidationSummary;
     }
 }

@@ -70,7 +70,7 @@ namespace MattMobileDetail
             DropDownUpdateVendor.DataTextField = "Vendor";
             DropDownUpdateVendor.DataValueField = "Vendor";
             DropDownUpdateVendor.DataBind();
-
+            DropDownUpdateVendor.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
         }
 
 
@@ -104,6 +104,9 @@ namespace MattMobileDetail
                 lblError.Text = "";
                 insertConnection.Close();
             }
+            PopulateItemstoBookmarkEdit();
+
+
         }
 
         protected void InventoryGridView_RowEditing(object sender, GridViewEditEventArgs e)
