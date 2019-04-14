@@ -1,24 +1,25 @@
 USE [MobileDetail]
 GO
 
-/****** Object:  StoredProcedure [dbo].[RetrieveBestCustomers]    Script Date: 4/13/2019 10:11:19 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBestCustomers]    Script Date: 4/14/2019 2:30:24 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-Create Procedure [dbo].[RetrieveBestCustomers]
+
+ALTER Procedure [dbo].[RetrieveBestCustomers]
 
 as
 
 
-Select
+Select Top 20
 	c.FirstName
 	,c.LastName
 	,c.Email
 	,c.Phone
-	,sum(GrandTotal) TotalSpent
+	,cast(sum(GrandTotal)as decimal(10, 2)) TotalSpent
 From
 	Appointments as a
 join
@@ -34,4 +35,5 @@ group by
 	,c.Phone
 
 GO
+
 

@@ -4,19 +4,19 @@
     <div id="DashboardContainer" style="margin: 20px 0px; width: 100%; text-align: left; display: table">
 
         <h3>Appointments</h3>
-         Select an appointment status: <asp:DropDownList ID="EventStatusList" runat="server"></asp:DropDownList> <br /><br />
-       
+        Select an appointment status:
+        <asp:DropDownList ID="EventStatusList" AutoPostBack="true" runat="server" OnSelectedIndexChanged="EventStatusList_SelectedIndexChanged"></asp:DropDownList>
+        <br />
+        <br />
+
 
         <asp:GridView ID="PendingAppointmentsGridView" runat="server"
             AutoGenerateColumns="False"
             OnRowEditing="PendingAppointmentsGridView_RowEditing"
             OnRowCancelingEdit="PendingAppointmentsGridView_RowCancelingEdit"
             OnRowUpdating="PendingAppointmentsGridView_RowUpdating"
-            OnRowDataBound="PendingAppointmentsGridView_RowDataBound"
-            ShowFooter="True"
             DataKeyNames="AppointmentID" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
             <RowStyle Height="40px" />
-            <FooterStyle Height="70px" />
             <AlternatingRowStyle BackColor="#DCDCDC" />
 
             <Columns>
@@ -35,8 +35,8 @@
                         <asp:Label ID="EmployeeAssigned" Text='<%# Eval("UserName") %>' runat="server" Width="100px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <%--<asp:TextBox ID="txtEmpAssigned" Text='<%# Eval("UserName") %>' runat="server" Width="100px" />--%>
-                        <asp:DropDownList ID="EmployeesDropDown2" runat="server" />
+                        <asp:TextBox ID="txtEmpAssigned" Text='<%# Eval("UserName") %>' runat="server" Width="100px" />
+                        <%--<asp:DropDownList ID="EmployeesDropDown2" runat="server" />--%>
                         <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmpAssigned" ID="ReqUserName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />--%>
                     </EditItemTemplate>
                 </asp:TemplateField>
@@ -138,9 +138,11 @@
         <br />
         <asp:Label ID="lblError" Text="" runat="server" ForeColor="Red" />
 
-        <h3>Top 20 Customers</h3>
+        <div id="wrapper" style="width: 100%; margin: 20px 0px;">
+        <div id="BestCustomersBacking" style="float: left; margin-bottom: 100px;">
+            <h3>Top 20 Customers</h3>
 
-        <asp:GridView ID="BestCustomersGridView" runat="server"
+            <asp:GridView ID="BestCustomersGridView" runat="server"
                 AutoGenerateColumns="False"
                 BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
                 <RowStyle Height="40px" />
@@ -164,9 +166,40 @@
                 <SortedDescendingCellStyle BackColor="#CAC9C9" />
                 <SortedDescendingHeaderStyle BackColor="#000065" />
             </asp:GridView>
+        </div>
+
+    <div id="InventoryLevelBacking" style="float: right;">
+        <h3>Inventory Levels</h3>
+
+        <asp:GridView ID="InventoryLevelsGridView" runat="server"
+            AutoGenerateColumns="False"
+            BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+            <RowStyle Height="40px" />
+            <AlternatingRowStyle BackColor="#DCDCDC" />
+
+            <Columns>
+
+                <asp:BoundField DataField="UPC" HeaderText="Product Code" SortExpression="Product Code" />
+                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                <asp:BoundField DataField="IsForSale" HeaderText="Is For Sale" SortExpression="IsForSale" />
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity Remaining" SortExpression="Quantity" />
+
+            </Columns>
+            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
+            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#0000A9" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#000065" />
+        </asp:GridView>
+    </div>
+    </div>
 
 
 
 
-            <asp:DropDownList ID="EmployeesDropDown" runat="server" />
+
+    <%--<asp:DropDownList ID="EmployeesDropDown" runat="server" />--%>
 </asp:Content>

@@ -58,12 +58,12 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.GridView BestCustomersGridView;
         
         /// <summary>
-        /// EmployeesDropDown control.
+        /// InventoryLevelsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList EmployeesDropDown;
+        protected global::System.Web.UI.WebControls.GridView InventoryLevelsGridView;
     }
 }

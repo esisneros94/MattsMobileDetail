@@ -20,16 +20,23 @@ namespace MattMobileDetail
                 PopulateEventStatusFilter();
                 PopulatePendingAppointments();
                 PopulateBestCustomersGridView();
+                PopulateInventoryLevels();
             }
 
         }
 
-        private void PopulatePendingAppointments()
+        private void PopulatePendingAppointments(string StatusToUse = "Completed")
         {
+
             String InventoryConnection = supplier.GetConnectionInfo();
 
             SqlConnection dbConnection = new SqlConnection(InventoryConnection);
-            SqlDataAdapter PendingAppointments = new SqlDataAdapter("exec RetrieveAppointmentsByStatus 'Completed'", dbConnection);
+
+
+            String sqlCommand = "exec RetrieveAppointmentsByStatus " + "'" + StatusToUse + "'";
+
+
+            SqlDataAdapter PendingAppointments = new SqlDataAdapter(sqlCommand, dbConnection);
 
             dbConnection.Open();
             DataTable table = new DataTable();
@@ -52,34 +59,48 @@ namespace MattMobileDetail
             BestCustomersGridView.DataBind();
         }
 
-        protected void PendingAppointmentsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        private void PopulateInventoryLevels()
         {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                if (e.Row.DataItem != null)
-                {
-                    //check if is in edit mode
-                    if ((e.Row.RowState & DataControlRowState.Edit) > 0)
-                    {
+            String InventoryConnection = supplier.GetConnectionInfo();
 
-                        String InventoryConnection = supplier.GetConnectionInfo();
-                        SqlConnection dbConnection = new SqlConnection(InventoryConnection);
-                        dbConnection.Open();
+            SqlConnection dbConnection = new SqlConnection(InventoryConnection);
 
-                        SqlDataAdapter ActiveInventoryList = new SqlDataAdapter("Select username From Employees", dbConnection);
-                        DataTable table = new DataTable();
-                        ActiveInventoryList.Fill(table);
-
-                        EmployeesDropDown.DataSource = table;
-                        EmployeesDropDown.DataBind();
-                        EmployeesDropDown.DataTextField = "userName";
-                        EmployeesDropDown.DataValueField = "userName";
-                        EmployeesDropDown.DataBind();
-                        EmployeesDropDown.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
-                    }
-                }
-            }
+            dbConnection.Open();
+            SqlDataAdapter PendingAppointments = new SqlDataAdapter("exec ListInventoryOnHand", dbConnection);
+            DataTable table = new DataTable();
+            PendingAppointments.Fill(table);
+            InventoryLevelsGridView.DataSource = table;
+            InventoryLevelsGridView.DataBind();
         }
+
+        //protected void PendingAppointmentsGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        if (e.Row.DataItem != null)
+        //        {
+        //            //check if is in edit mode
+        //            if ((e.Row.RowState & DataControlRowState.Edit) > 0)
+        //            {
+
+        //                String InventoryConnection = supplier.GetConnectionInfo();
+        //                SqlConnection dbConnection = new SqlConnection(InventoryConnection);
+        //                dbConnection.Open();
+
+        //                SqlDataAdapter ActiveInventoryList = new SqlDataAdapter("Select username From Employees", dbConnection);
+        //                DataTable table = new DataTable();
+        //                ActiveInventoryList.Fill(table);
+
+        //                EmployeesDropDown.DataSource = table;
+        //                EmployeesDropDown.DataBind();
+        //                EmployeesDropDown.DataTextField = "userName";
+        //                EmployeesDropDown.DataValueField = "userName";
+        //                EmployeesDropDown.DataBind();
+        //                EmployeesDropDown.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
+        //            }
+        //        }
+        //    }
+        //}
 
         protected void PopulateEventStatusFilter()
         {
@@ -96,7 +117,7 @@ namespace MattMobileDetail
             EventStatusList.DataTextField = "eventStatus";
             EventStatusList.DataValueField = "eventStatus";
             EventStatusList.DataBind();
-            EventStatusList.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
+
         }
 
         protected void PendingAppointmentsGridView_RowEditing(object sender, GridViewEditEventArgs e)
@@ -128,7 +149,7 @@ namespace MattMobileDetail
             updateEstablishment.Parameters.AddWithValue("@AptState", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentState") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@AptZIP", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentZIP") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@EventStatus", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentStatus") as TextBox).Text.Trim());
-            
+
 
             updateConnection.Open();
             updateEstablishment.ExecuteNonQuery();
@@ -138,6 +159,12 @@ namespace MattMobileDetail
             lblError.Text = "";
             updateConnection.Close();
 
+        }
+
+        protected void EventStatusList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selectedItem = EventStatusList.SelectedItem.ToString();
+            PopulatePendingAppointments(selectedItem);
         }
     }
 }
