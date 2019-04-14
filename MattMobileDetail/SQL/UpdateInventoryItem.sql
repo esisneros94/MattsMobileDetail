@@ -1,5 +1,6 @@
-CREATE Procedure [dbo].[UpdateInventoryItem]
-   @UNC     varchar(60)
+
+ALTER Procedure [dbo].[UpdateInventoryItem]
+   @UPC     varchar(60)
     ,@Name          varchar(100)
     ,@Description       varchar(100)
     ,@IsForSale         varchar(100)
@@ -32,7 +33,7 @@ END CATCH
          Update 
             Inventory
          set 
-            UNC            = @UNC
+            UPC            = @UPC
             ,Name           = @Name
             ,Description     = @Description
             ,IsForSale       = @IsForSale
@@ -40,12 +41,12 @@ END CATCH
             ,StartDate       = @StartDate
             ,EndDate         = @EndDate
          Where
-            UNC = @UNC
+            UPC = @UPC
     COMMIT Transaction UpdateInventory
     END TRY
     BEGIN Catch
             Print 'Something happened when updating'
-    #        Rollback inventory UpdateInventory
+		    Rollback Transaction UpdateInventory
     END CATCH
 
 

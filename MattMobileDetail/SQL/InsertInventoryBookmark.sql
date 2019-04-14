@@ -1,6 +1,6 @@
 
 
-CREATE Procedure [dbo].[InsertInventoryBookmark]
+ALTER Procedure [dbo].[InsertInventoryBookmark]
     @UPC     varchar(60)
     ,@Vendor       varchar(100)
     ,@URL         varchar(1000)
@@ -34,8 +34,14 @@ BEGIN
     Return
 END
 
--- we need to add in the if statment to check if vendor exists in DB
--- If exists (Select Vendor From Vendors where Vendor = @CleanVendor
+If not exists (Select * from Vendors where Name = @CleanVendor)
+    BEGIN
+        Insert into Vendors
+            Values (@CleanVendor, cast(getdate() as date), null)
+    END
+Else
+
+
 If exists (Select IB.UPC, IB.Vendor, IB.URL From MobileDetail..InventoryBookmark as IB Where UPC = @CleanUPC AND IB.URL = @CleanURL)
     BEGIN
         Print 'Invalid request'
