@@ -137,9 +137,7 @@
     <Content Include="Members\Inventory.aspx" />
     <Content Include="Members\InventoryBookmarks.aspx" />
     <Content Include="Non-Members\Login.aspx" />
-    <Content Include="Members\SecurityTest.aspx" />
     <Content Include="Members\NewPromotions.aspx" />
-    <Content Include="Non-Members\Test.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
     <Content Include="Pictures\Matts_Car_Logo.jpg" />
     <Content Include="Pictures\Matts Writing Logo.jpg" />
@@ -261,26 +259,12 @@
     <Compile Include="Non-Members\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\SecurityTest.aspx.cs">
-      <DependentUpon>SecurityTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Members\SecurityTest.aspx.designer.cs">
-      <DependentUpon>SecurityTest.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Members\NewPromotions.aspx.cs">
       <DependentUpon>NewPromotions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Members\NewPromotions.aspx.designer.cs">
       <DependentUpon>NewPromotions.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Non-Members\Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Non-Members\Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Non-Members\Reviews.aspx.cs">
