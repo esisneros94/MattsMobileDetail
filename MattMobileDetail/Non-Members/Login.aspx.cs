@@ -19,7 +19,21 @@ namespace MattMobileDetail
 		}
         protected void RedirectToFAQ(object sender, EventArgs e)
         {
+            if (Membership.ValidateUser(LoginEmail.Text, LoginPW.Text))
+            {
+                // https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647070(v=pandp.10) // read under cookieless forms auth
+                // this automatically creates a cookie
+                FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
 
+                // Dont need a session since we're using the cookie
+                //Session["LoginID"] = LoginEmail.Text;
+                //string valueFromSession = Session["LoginID"].ToString();
+            }
+            else
+            {
+                FormsAuthentication.RedirectToLoginPage();
+                Response.Write("Invalid Username / Password Combination");
+            }
 
             //var supplier = new DataSupplier();
             //var connection = supplier.GetConnectionInfo();
@@ -41,19 +55,6 @@ namespace MattMobileDetail
             //    //Response.Redirect("Dashboard.aspx");
             //    FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
             //}
-            if (Membership.ValidateUser(LoginEmail.Text, LoginPW.Text))
-            {
-                FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
-            }
-            //{
-            //    //Response.Redirect("Dashboard.aspx");
-            //    FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
-            //}
-            else
-            {
-                FormsAuthentication.RedirectToLoginPage();
-                Response.Write("Invalid Username / Password Combination");
-            }
 
             //dbConnection.Close();
 

@@ -141,7 +141,7 @@
     <Content Include="Members\NewPromotions.aspx" />
     <Content Include="Non-Members\Test.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
-    <Content Include="Pictures\Matts Car Logo.jpg" />
+    <Content Include="Pictures\Matts_Car_Logo.jpg" />
     <Content Include="Pictures\Matts Writing Logo.jpg" />
     <Content Include="Non-Members\Reviews.aspx" />
     <Content Include="Non-Members\ScheduleAppointment.aspx" />
@@ -174,7 +174,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Non-Members\Services.aspx" />
-    <Content Include="Services_MMD.png" />
+    <Content Include="Pictures\Services_MMD.png" />
     <Content Include="Site.Master" />
     <Content Include="Non-Members\SponsoredEvents.aspx" />
     <Content Include="Members\Transactions.aspx" />
