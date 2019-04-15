@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Dashboard.aspx.cs" Inherits="MattMobileDetail.Dashboard" ValidateRequest="true" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .ErrorMessage {
+            color: red;
+        }
+    </style>
+
+
+
     <div id="DashboardContainer" style="margin: 20px 0px; width: 100%; text-align: left; display: table">
 
         <h3>Appointments</h3>
@@ -15,6 +23,7 @@
             OnRowEditing="PendingAppointmentsGridView_RowEditing"
             OnRowCancelingEdit="PendingAppointmentsGridView_RowCancelingEdit"
             OnRowUpdating="PendingAppointmentsGridView_RowUpdating"
+            OnRowDataBound="PendingAppointmentsGridView_RowDataBound"
             DataKeyNames="AppointmentID" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
             <RowStyle Height="40px" />
             <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -35,9 +44,8 @@
                         <asp:Label ID="EmployeeAssigned" Text='<%# Eval("UserName") %>' runat="server" Width="100px" />
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txtEmpAssigned" Text='<%# Eval("UserName") %>' runat="server" Width="100px" />
-                        <%--<asp:DropDownList ID="EmployeesDropDown2" runat="server" />--%>
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtEmpAssigned" ID="ReqUserName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />--%>
+                        <asp:DropDownList ID="EmployeesDropDown2" runat="server" />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="EmployeesDropDown2" ID="ReqUserName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -47,7 +55,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtCustomerName" Text='<%# Eval("CustomerName") %>' runat="server" Width="200px" />
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtCustomerName" ID="ReqCustomerName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />--%>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtCustomerName" ID="ReqCustomerName" ErrorMessage="Enter a Name" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -58,7 +66,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtAppointmentDate" Text='<%# Eval("DateTime") %>' runat="server" Width="200px" />
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentDate" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage" />--%>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentDate" ID="ReqDescription" ErrorMessage="Enter a Description" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -68,7 +76,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtAppointmentLocation" Text='<%# Eval("AptAddress") %>' runat="server" Width="150px" />
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentLocation" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage" />--%>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentLocation" ID="ReqIsForSale" ErrorMessage="Enter the For Sale Status" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -78,7 +86,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtAppointmentCity" Text='<%# Eval("AptCity") %>' runat="server" Width="100px" />
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentCity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage" />--%>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentCity" ID="ReqQuantity" ErrorMessage="Enter the Quantity" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -88,7 +96,7 @@
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txtAppointmentState" Text='<%# Eval("AptState") %>' runat="server" Width="50px" />
-                        <%--<asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentState" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage" />--%>
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtAppointmentState" ID="ReqStartDate" ErrorMessage="Enter a Start Date" CssClass="ErrorMessage" />
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -102,12 +110,17 @@
                 </asp:TemplateField>
 
                 <asp:TemplateField HeaderText="Status">
+                    <EditItemTemplate>
+                        <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem>Pending</asp:ListItem>
+                            <asp:ListItem>Completed</asp:ListItem>
+                            <asp:ListItem>Scheduled</asp:ListItem>
+                            <asp:ListItem>Cancelled</asp:ListItem>
+                        </asp:DropDownList>
+                    </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="AppointmentStatus" Text='<%# Eval("EventStatus") %>' runat="server" Width="100px" />
                     </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtAppointmentStatus" Text='<%# Eval("EventStatus") %>' runat="server" Width="100px" />
-                    </EditItemTemplate>
                 </asp:TemplateField>
 
                 <asp:TemplateField>
@@ -132,6 +145,8 @@
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
 
+        <asp:ValidationSummary runat="server" ForeColor="Red" ID="UpdatePromotionsSummary" DisplayMode="BulletList" />
+
 
         <br />
         <asp:Label ID="lblSucess" Text="" runat="server" ForeColor="Green" />
@@ -139,67 +154,61 @@
         <asp:Label ID="lblError" Text="" runat="server" ForeColor="Red" />
 
         <div id="wrapper" style="width: 100%; margin: 20px 0px;">
-        <div id="BestCustomersBacking" style="float: left; margin-bottom: 100px;">
-            <h3>Top 20 Customers</h3>
+            <div id="BestCustomersBacking" style="float: left; margin-bottom: 100px;">
+                <h3>Top 20 Customers</h3>
 
-            <asp:GridView ID="BestCustomersGridView" runat="server"
-                AutoGenerateColumns="False"
-                BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
-                <RowStyle Height="40px" />
-                <AlternatingRowStyle BackColor="#DCDCDC" />
+                <asp:GridView ID="BestCustomersGridView" runat="server"
+                    AutoGenerateColumns="False"
+                    BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+                    <RowStyle Height="40px" />
+                    <AlternatingRowStyle BackColor="#DCDCDC" />
 
-                <Columns>
+                    <Columns>
 
-                    <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="First Name" />
-                    <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="Last Name" />
-                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                    <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
-                    <asp:BoundField DataField="TotalSpent" HeaderText="Total Spent" SortExpression="Total Spent" />
+                        <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="First Name" />
+                        <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="Last Name" />
+                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                        <asp:BoundField DataField="Phone" HeaderText="Phone" SortExpression="Phone" />
+                        <asp:BoundField DataField="TotalSpent" HeaderText="Total Spent" SortExpression="Total Spent" />
 
-                </Columns>
-                <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
-                <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-                <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-                <SortedAscendingCellStyle BackColor="#F1F1F1" />
-                <SortedAscendingHeaderStyle BackColor="#0000A9" />
-                <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                <SortedDescendingHeaderStyle BackColor="#000065" />
-            </asp:GridView>
+                    </Columns>
+                    <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
+                    <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#000065" />
+                </asp:GridView>
+            </div>
+
+            <div id="InventoryLevelBacking" style="float: right;">
+                <h3>Inventory Levels</h3>
+
+                <asp:GridView ID="InventoryLevelsGridView" runat="server"
+                    AutoGenerateColumns="False"
+                    BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+                    <RowStyle Height="40px" />
+                    <AlternatingRowStyle BackColor="#DCDCDC" />
+
+                    <Columns>
+
+                        <asp:BoundField DataField="UPC" HeaderText="Product Code" SortExpression="Product Code" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
+                        <asp:BoundField DataField="IsForSale" HeaderText="Is For Sale" SortExpression="IsForSale" />
+                        <asp:BoundField DataField="Quantity" HeaderText="Quantity Remaining" SortExpression="Quantity" />
+
+                    </Columns>
+                    <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
+                    <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+                    <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#0000A9" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#000065" />
+                </asp:GridView>
+            </div>
         </div>
-
-    <div id="InventoryLevelBacking" style="float: right;">
-        <h3>Inventory Levels</h3>
-
-        <asp:GridView ID="InventoryLevelsGridView" runat="server"
-            AutoGenerateColumns="False"
-            BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
-            <RowStyle Height="40px" />
-            <AlternatingRowStyle BackColor="#DCDCDC" />
-
-            <Columns>
-
-                <asp:BoundField DataField="UPC" HeaderText="Product Code" SortExpression="Product Code" />
-                <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
-                <asp:BoundField DataField="IsForSale" HeaderText="Is For Sale" SortExpression="IsForSale" />
-                <asp:BoundField DataField="Quantity" HeaderText="Quantity Remaining" SortExpression="Quantity" />
-
-            </Columns>
-            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Left" />
-            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
-            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#F1F1F1" />
-            <SortedAscendingHeaderStyle BackColor="#0000A9" />
-            <SortedDescendingCellStyle BackColor="#CAC9C9" />
-            <SortedDescendingHeaderStyle BackColor="#000065" />
-        </asp:GridView>
-    </div>
-    </div>
-
-
-
-
-
-    <%--<asp:DropDownList ID="EmployeesDropDown" runat="server" />--%>
 </asp:Content>
