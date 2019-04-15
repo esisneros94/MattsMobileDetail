@@ -14,17 +14,26 @@
         </style>
     </head>
     <body>
-        <div class="title">
+        <div class="jumbotron text-center">
             <h1>Reviews</h1>
+            <p>Take a look at what Matt's happy customers have to say!</p>
         </div>
-        <div class="image">
-            <asp:GridView runat="server" ID="Review_Grid" AutoGenerateColumns="false" CellPadding="4" GridLines="Horizontal" HorizontalAlign="Center">
-                <Columns>
-                    <asp:BoundField HeaderText="Rating" ReadOnly="true"  />
-                    <asp:BoundField DataField="" HeaderText="Customer" ReadOnly="true" />
-                    <asp:BoundField DataField="" HeaderText="Comments" ReadOnly="true" />
-                </Columns>
-            </asp:GridView>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <h3>★★★★★</h3>
+                    <p>Matt has been keeping my car spotless for the past couple years, he really takes the time to make sure I am a satisfied customer.</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>★★★★★</h3>
+                    <p>Matt's attention to detail has made a huge impact on the longevity of my car's paint and interior. I absolutely reccomend!</p>
+                </div>
+                <div class="col-sm-4">
+                    <h3>★★★★★</h3>
+                    <p>Matt's business is so convenient. I love that he is able to come to my work and detail my car. </p>
+                </div>
+            </div>
         </div>
         <div class="button">
             <br />

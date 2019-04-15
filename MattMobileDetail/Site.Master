@@ -128,18 +128,19 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navColor" runat="server" href="~/Non-Members/Services.aspx">Services</a></li>
+                        <li><a class="navColor" runat="server" href="~/Non-Members/Services">Services</a></li>
                         <li><a class="navColor" runat="server" href="~/Non-Members/ScheduleAppointment">Schedule Appointment</a></li>
-                        <li>
+                        <li><a class="navColor" runat="server" href="~/Non-Members/Reviews">Reviews</a></li>
+                        <%--<li>
                             <div class="dropdown">
                                 <button class="dropbtn">Media</button>
                                 <div class="dropdown-content">
                                     <a href="~/Non-Members/Reviews.aspx">Reviews</a>
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <li><a class="navColor" runat="server" href="~/Non-Members/FAQ">FAQs</a></li>
-                        <li><a class="navColor" runat="server" href="~/Non-MembersContact">Contact</a></li>
+                        <li><a class="navColor" runat="server" href="~/Non-Members/Contact">Contact</a></li>
                         <li><a class="navColor" runat="server" href="~/Non-Members/Login">Login</a></li>
                     </ul>
                 </div>
@@ -153,8 +154,8 @@
             <footer class="footer">
                 <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
                 <p></p>
-                <p>Have questions? Check out the <a href="~/Non-Members/FAQ.aspx">FAQs</a></p>
-                <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
+                <p>Have questions? Check out the <a href="FAQ">FAQs</a></p>
+                <p>Contact Matt: 505-217-5417 or mo@omick.com</p>
             </footer>
         </div>
 

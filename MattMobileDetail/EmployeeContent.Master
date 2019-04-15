@@ -124,7 +124,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing</a>
+                    <a class="navbar-brand  navColor" runat="server" href="~/Non-Members/Default">Matt's Mobile Detailing</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
