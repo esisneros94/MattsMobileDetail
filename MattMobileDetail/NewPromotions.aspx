@@ -112,7 +112,5 @@
 
     <asp:ValidationSummary runat="server" ValidationGroup="Insert" ForeColor="Red" ID="PromotionsValidationSummary" DisplayMode="BulletList"/>
     <asp:ValidationSummary runat="server" ForeColor="Red" ID="UpdatePromotionsSummary" DisplayMode="BulletList"/>
-    
-
 
 </asp:Content>

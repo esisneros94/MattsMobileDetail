@@ -139,6 +139,7 @@
     <Content Include="Inventory.aspx" />
     <Content Include="InventoryBookmarks.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Members\SecurityTest.aspx" />
     <Content Include="NewPromotions.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
     <Content Include="Pictures\Matts Car Logo.jpg" />
@@ -283,6 +284,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Members\SecurityTest.aspx.cs">
+      <DependentUpon>SecurityTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Members\SecurityTest.aspx.designer.cs">
+      <DependentUpon>SecurityTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewPromotions.aspx.cs">
       <DependentUpon>NewPromotions.aspx</DependentUpon>

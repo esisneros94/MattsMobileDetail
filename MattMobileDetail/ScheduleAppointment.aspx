@@ -158,7 +158,7 @@
                         <asp:DropDownList ID="AppointmentHour" runat="server">
                             <asp:ListItem Enabled="true" Text="Select Hour" Value=""></asp:ListItem>
                             <asp:ListItem Enabled="true" Text="1:00" Value="1"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="1:00" Value="2"></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="2:00" Value="2"></asp:ListItem>
                             <asp:ListItem Enabled="true" Text="3:00" Value="3"></asp:ListItem>
                             <asp:ListItem Enabled="true" Text="4:00" Value="4"></asp:ListItem>
                             <asp:ListItem Enabled="true" Text="5:00" Value="5"></asp:ListItem>
