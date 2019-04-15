@@ -128,17 +128,17 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navColor" runat="server" href="~/Dashboard">Dashboard</a></li>
-                        <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
+                        <li><a class="navColor" runat="server" href="~/Members/Dashboard">Dashboard</a></li>
+                        <li><a class="navColor" runat="server" href="~/Members/Transactions">Transaction Management</a></li>
                         <li>
                             <div class="dropdown">
                                 <button class="dropbtn">Inventory Management</button>
                                 <div class="dropdown-content">
-                                    <a href="Inventory.aspx">Inventory</a>
-                                    <a href="InventoryBookmarks.aspx">Inventory Bookmarks</a>
+                                    <a href="~/Members/Inventory.aspx">Inventory</a>
+                                    <a href="~/Members/InventoryBookmarks.aspx">Inventory Bookmarks</a>
                                 </div>
                             </div>
-                        <li><a class="navColor" runat="server" href="~/NewPromotions">Promotion Management</a></li>
+                        <li><a class="navColor" runat="server" href="~/Members/NewPromotions">Promotion Management</a></li>
                         <li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>

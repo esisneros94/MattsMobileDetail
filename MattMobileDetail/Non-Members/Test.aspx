@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SecurityTest.aspx.cs" Inherits="MattMobileDetail.Members.SecurityTest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Test.aspx.cs" Inherits="MattMobileDetail.Non_Members.Test" %>
 
 <!DOCTYPE html>
 
@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label runat="server" Text="Members only page" />
+            <asp:Label runat="server" Text="Anyone can view this" />
         </div>
     </form>
 </body>
