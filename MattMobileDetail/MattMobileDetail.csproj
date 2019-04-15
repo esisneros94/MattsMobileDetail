@@ -200,7 +200,9 @@
     <Content Include="SQL\UpdatePromotionRecord.sql" />
     <Content Include="Transactions.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -349,6 +351,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Members\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
