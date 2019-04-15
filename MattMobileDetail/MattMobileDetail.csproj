@@ -133,6 +133,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="EmployeeContent.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Inventory.aspx" />
     <Content Include="InventoryBookmarks.aspx" />
@@ -176,9 +178,32 @@
     <Content Include="Services_MMD.png" />
     <Content Include="Site.Master" />
     <Content Include="SponsoredEvents.aspx" />
+    <Content Include="SQL\CreateMobileDetailConstraints.sql" />
+    <Content Include="SQL\CreateMobileDetailDatabase.sql" />
+    <Content Include="SQL\CreateMobileDetailForeignKeys.sql" />
+    <Content Include="SQL\CreateMobileDetailTables.sql" />
+    <Content Include="SQL\CreateUsers.sql" />
+    <Content Include="SQL\DestroyMobileDetailDatabase.sql" />
+    <Content Include="SQL\DropMobileDetailConstraints.sql" />
+    <Content Include="SQL\DropMobileDetailForeignKeys.sql" />
+    <Content Include="SQL\DropMobileDetailTables.sql" />
+    <Content Include="SQL\InsertAppointmentInfo.sql" />
+    <Content Include="SQL\InsertCustomerRecord.sql" />
+    <Content Include="SQL\InsertDataIntoMobileDetailTables.sql" />
+    <Content Include="SQL\InsertInventoryBookmark.sql" />
+    <Content Include="SQL\InsertInventoryItem.sql" />
+    <Content Include="SQL\InsertNewPromotion.sql" />
+    <Content Include="SQL\InsertVehicleRecord.sql" />
+    <Content Include="SQL\LoginUser.sql" />
+    <Content Include="SQL\PopulatePromotionsTable.sql" />
+    <Content Include="SQL\UpdateInventoryBookmark.sql" />
+    <Content Include="SQL\UpdateInventoryItem.sql" />
+    <Content Include="SQL\UpdatePromotionRecord.sql" />
     <Content Include="Transactions.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -334,7 +359,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="SQL\" />
+    <Folder Include="Members\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

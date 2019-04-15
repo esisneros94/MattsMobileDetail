@@ -12,7 +12,7 @@ namespace MattMobileDetail
 
         public string GetConnectionInfo()
         {
-            string connection = ConfigurationManager.ConnectionStrings["MobileDetailConnection"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["RemoteConnection"].ConnectionString;
 
             return connection;
         }
