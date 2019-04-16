@@ -19,6 +19,7 @@ namespace MattMobileDetail
 		}
         protected void RedirectToFAQ(object sender, EventArgs e)
         {
+
             if (FormsAuthentication.Authenticate(LoginEmail.Text, LoginPW.Text))
             {
                 // https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647070(v=pandp.10) // read under cookieless forms auth
@@ -52,6 +53,7 @@ namespace MattMobileDetail
 
             //if (reader.HasRows == true)
             //{
+
             //    //Response.Redirect("Dashboard.aspx");
             //    FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
             //}
