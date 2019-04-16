@@ -55,7 +55,11 @@ namespace MattMobileDetail
             //    //Response.Redirect("Dashboard.aspx");
             //    FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
             //}
-
+            //else
+            //{
+            //    FormsAuthentication.RedirectToLoginPage();
+            //    Response.Write("Invalid Username / Password Combination");
+            //}
             //dbConnection.Close();
 
         }
