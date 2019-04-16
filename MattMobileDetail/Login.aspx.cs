@@ -22,7 +22,7 @@ namespace MattMobileDetail
 
 
             var supplier = new DataSupplier();
-            var connection = supplier.GetConnectionInfo();
+            var connection = supplier.GetWebUserConnectInfo();
 
             SqlConnection dbConnection = new SqlConnection(connection);
             SqlCommand command = new SqlCommand();

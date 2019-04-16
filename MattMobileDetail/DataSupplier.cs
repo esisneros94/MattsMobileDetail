@@ -16,6 +16,12 @@ namespace MattMobileDetail
 
             return connection;
         }
+        public string GetWebUserConnectInfo()
+        {
+            string connection = ConfigurationManager.ConnectionStrings["WebUserWemoteConnection"].ConnectionString;
+
+            return connection;
+        }
 
         public SqlDataReader GetPromotions()
         {
