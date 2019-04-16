@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
+    <SCRIPT type="text/javascript">
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+    </SCRIPT>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -91,10 +96,11 @@
         .navColor {
             background-color: darkblue;
             color: white !important;
+            text-align: center;
         }
     </style>
 </head>
-<body>
+<body  onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -124,22 +130,25 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing</a>
+                    <asp:Label runat="server"  CssClass="navColor" Text="Matts Mobile Detailing" />
+                    <%--<a class="navbar-brand  navColor" runat="server" href="~/Non-Members/Default">Matt's Mobile Detailing</a>--%>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a class="navColor" runat="server" href="~/Dashboard">Dashboard</a></li>
-                        <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
-                        <li>
+                        <li><a class="navColor" runat="server" href="~/Members/Dashboard">Dashboard</a></li>
+                        <li><a class="navColor" runat="server" href="~/Members/Transactions">Transaction Management</a></li>
+                        <li><a class="navColor" runat="server" href="~/Members/Inventory">Inventory Management</a></li>
+                        <%--<li>
                             <div class="dropdown">
                                 <button class="dropbtn">Inventory Management</button>
                                 <div class="dropdown-content">
-                                    <a href="Inventory.aspx">Inventory</a>
-                                    <a href="InventoryBookmarks.aspx">Inventory Bookmarks</a>
+                                    <a href="~/Members/Inventory.aspx">Inventory</a>
+                                    <a href="~/Members/InventoryBookmarks.aspx">Inventory Bookmarks</a>
                                 </div>
-                            </div>
-                        <li><a class="navColor" runat="server" href="~/NewPromotions">Promotion Management</a></li>
-                        <li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
+                            </div>--%>
+                        <li><a class="navColor" runat="server" href="~/Members/NewPromotions">Promotion Management</a></li>
+                        <asp:Button ID="btLogout" runat="server"  CssClass="navColor" Text="Logout" OnClick="btLogout_Click" />
+                        <%--<li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>
             </div>
@@ -152,7 +161,7 @@
             <footer class="footer">
                 <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
                 <p></p>
-                <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
+                <p>Contact Matt: 505-217-5417 or mo@omick.com</p>
             </footer>
         </div>
 

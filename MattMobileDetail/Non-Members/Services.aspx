@@ -29,7 +29,7 @@
             <h1>Services</h1>
         </div>
         <div class="image">
-            <asp:Image ID="Services_Table" ImageUrl="~/Services_MMD.png" runat="server" ImageAlign="Middle" /> <%--NEED TO INCREASE SIZE--%>
+            <asp:Image ID="Services_Table" ImageUrl="~/Pictures/Services_MMD.png" runat="server" ImageAlign="Middle" /> <%--NEED TO INCREASE SIZE--%>
             <br />
             <br />
         </div>

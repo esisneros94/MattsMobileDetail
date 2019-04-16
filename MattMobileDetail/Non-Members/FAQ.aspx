@@ -52,7 +52,7 @@
                     <button type="button" class="Button" data-toggle="collapse" data-target="#demo2">What does each package include?</button>
                     <div id="demo2" class="collapse">
                         <div style="margin: 10px 0px;">
-                            Visit services page to see the specific package details. <a href="Services.aspx">Services Page</a>
+                            Visit services page to see the specific package details. <a href="~/Non-Members/Services.aspx">Services Page</a>
                         </div>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                     <div id="demo6" class="collapse">
                         <div style="margin: 10px 0px;">
                         Matt’s Mobile Detailing is open 7 days a week! Sun up to sundown. Check out the schedule an appointment page to see
-                        my weekly schedule. <a href="ScheduleAppointment.aspx">Appointment Page</a>
+                        my weekly schedule. <a href="~/Non-Members/ScheduleAppointment.aspx">Appointment Page</a>
                         </div>
                     </div>
                 </div>
