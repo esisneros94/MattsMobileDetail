@@ -19,7 +19,7 @@ namespace MattMobileDetail
 		}
         protected void RedirectToFAQ(object sender, EventArgs e)
         {
-            if (Membership.ValidateUser(LoginEmail.Text, LoginPW.Text))
+            if (FormsAuthentication.Authenticate(LoginEmail.Text, LoginPW.Text))
             {
                 // https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff647070(v=pandp.10) // read under cookieless forms auth
                 // this automatically creates a cookie
