@@ -143,7 +143,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 firstRowPicture">
-                    <img src="../Pictures/Matts_Car_Logo.jpg" style="width: 350px; height: 250px" />
+                    <img src="Pictures/Matts Car Logo.jpg" style="width: 350px; height: 250px" />
                 </div>
                 <div class="col-md-1">
                 </div>

@@ -14,7 +14,7 @@ namespace MattMobileDetail
         protected void Page_Load(object sender, EventArgs e)
         {
             var supplier = new DataSupplier();
-            var connection = supplier.GetWebUserConnectInfo();
+            var connection = supplier.GetConnectionInfo();
 
             SqlConnection Connection = new SqlConnection(connection);
             DataSupplier DataHolder = new DataSupplier();

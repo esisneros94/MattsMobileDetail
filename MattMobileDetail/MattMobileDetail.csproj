@@ -110,17 +110,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Non-Members\About.aspx" />
-    <Content Include="Non-Members\AppointmentConfirmation.aspx" />
-    <Content Include="Non-Members\Contact.aspx" />
+    <Content Include="About.aspx" />
+    <Content Include="AppointmentConfirmation.aspx" />
+    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Dashboard.aspx" />
-    <Content Include="Non-Members\Default.aspx" />
-    <Content Include="Non-Members\FAQ.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="FAQ.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -134,15 +134,15 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="EmployeeContent.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Members\Inventory.aspx" />
-    <Content Include="Members\InventoryBookmarks.aspx" />
-    <Content Include="Non-Members\Login.aspx" />
-    <Content Include="Members\NewPromotions.aspx" />
+    <Content Include="Inventory.aspx" />
+    <Content Include="InventoryBookmarks.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="NewPromotions.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
-    <Content Include="Pictures\Matts_Car_Logo.jpg" />
+    <Content Include="Pictures\Matts Car Logo.jpg" />
     <Content Include="Pictures\Matts Writing Logo.jpg" />
-    <Content Include="Non-Members\Reviews.aspx" />
-    <Content Include="Non-Members\ScheduleAppointment.aspx" />
+    <Content Include="Reviews.aspx" />
+    <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -171,38 +171,38 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
-    <Content Include="Non-Members\Services.aspx" />
-    <Content Include="Pictures\Services_MMD.png" />
+    <Content Include="Services.aspx" />
+    <Content Include="Services_MMD.png" />
     <Content Include="Site.Master" />
-    <Content Include="Non-Members\SponsoredEvents.aspx" />
-    <Content Include="Members\Transactions.aspx" />
+    <Content Include="SponsoredEvents.aspx" />
+    <Content Include="Transactions.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Non-Members\AppointmentConfirmation.aspx.cs">
+    <Compile Include="AppointmentConfirmation.aspx.cs">
       <DependentUpon>AppointmentConfirmation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\AppointmentConfirmation.aspx.designer.cs">
+    <Compile Include="AppointmentConfirmation.aspx.designer.cs">
       <DependentUpon>AppointmentConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Non-Members\About.aspx.cs">
+    <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\About.aspx.designer.cs">
+    <Compile Include="About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Non-Members\Contact.aspx.cs">
+    <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\Contact.aspx.designer.cs">
+    <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.aspx.cs">
@@ -213,11 +213,11 @@
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataSupplier.cs" />
-    <Compile Include="Non-Members\Default.aspx.cs">
+    <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\Default.aspx.designer.cs">
+    <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="EmployeeContent.Master.cs">
@@ -228,64 +228,64 @@
       <DependentUpon>EmployeeContent.Master</DependentUpon>
     </Compile>
     <Compile Include="EncryptionSupplier.cs" />
-    <Compile Include="Non-Members\FAQ.aspx.cs">
+    <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\FAQ.aspx.designer.cs">
+    <Compile Include="FAQ.aspx.designer.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Members\Inventory.aspx.cs">
+    <Compile Include="Inventory.aspx.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\Inventory.aspx.designer.cs">
+    <Compile Include="Inventory.aspx.designer.cs">
       <DependentUpon>Inventory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\InventoryBookmarks.aspx.cs">
+    <Compile Include="InventoryBookmarks.aspx.cs">
       <DependentUpon>InventoryBookmarks.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\InventoryBookmarks.aspx.designer.cs">
+    <Compile Include="InventoryBookmarks.aspx.designer.cs">
       <DependentUpon>InventoryBookmarks.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Non-Members\Login.aspx.cs">
+    <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\Login.aspx.designer.cs">
+    <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\NewPromotions.aspx.cs">
+    <Compile Include="NewPromotions.aspx.cs">
       <DependentUpon>NewPromotions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\NewPromotions.aspx.designer.cs">
+    <Compile Include="NewPromotions.aspx.designer.cs">
       <DependentUpon>NewPromotions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Non-Members\Reviews.aspx.cs">
+    <Compile Include="Reviews.aspx.cs">
       <DependentUpon>Reviews.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\Reviews.aspx.designer.cs">
+    <Compile Include="Reviews.aspx.designer.cs">
       <DependentUpon>Reviews.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Non-Members\ScheduleAppointment.aspx.cs">
+    <Compile Include="ScheduleAppointment.aspx.cs">
       <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\ScheduleAppointment.aspx.designer.cs">
+    <Compile Include="ScheduleAppointment.aspx.designer.cs">
       <DependentUpon>ScheduleAppointment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Non-Members\Services.aspx.cs">
+    <Compile Include="Services.aspx.cs">
       <DependentUpon>Services.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\Services.aspx.designer.cs">
+    <Compile Include="Services.aspx.designer.cs">
       <DependentUpon>Services.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
@@ -302,18 +302,18 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="Non-Members\SponsoredEvents.aspx.cs">
+    <Compile Include="SponsoredEvents.aspx.cs">
       <DependentUpon>SponsoredEvents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Non-Members\SponsoredEvents.aspx.designer.cs">
+    <Compile Include="SponsoredEvents.aspx.designer.cs">
       <DependentUpon>SponsoredEvents.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\Transactions.aspx.cs">
+    <Compile Include="Transactions.aspx.cs">
       <DependentUpon>Transactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\Transactions.aspx.designer.cs">
+    <Compile Include="Transactions.aspx.designer.cs">
       <DependentUpon>Transactions.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">

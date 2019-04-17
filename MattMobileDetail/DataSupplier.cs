@@ -12,13 +12,7 @@ namespace MattMobileDetail
 
         public string GetConnectionInfo()
         {
-            string connection = ConfigurationManager.ConnectionStrings["MobileDetailOwner"].ConnectionString;
-
-            return connection;
-        }
-        public string GetWebUserConnectInfo()
-        {
-            string connection = ConfigurationManager.ConnectionStrings["WebUserRemoteConnection"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["MobileDetailConnection"].ConnectionString;
 
             return connection;
         }
@@ -26,7 +20,7 @@ namespace MattMobileDetail
         public SqlDataReader GetPromotions()
         {
             var supplier = new DataSupplier();
-            var connection = supplier.GetWebUserConnectInfo();
+            var connection = supplier.GetConnectionInfo();
            
             SqlConnection PromotionsConnection = new SqlConnection(connection);
             SqlCommand RetrievePromotionsInfo = new SqlCommand();
