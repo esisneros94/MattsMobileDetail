@@ -118,7 +118,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Members\Dashboard.aspx" />
+    <Content Include="Dashboard.aspx" />
     <Content Include="Non-Members\Default.aspx" />
     <Content Include="Non-Members\FAQ.aspx" />
     <Content Include="favicon.ico" />
@@ -205,11 +205,11 @@
     <Compile Include="Non-Members\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Members\Dashboard.aspx.cs">
+    <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Members\Dashboard.aspx.designer.cs">
+    <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataSupplier.cs" />
