@@ -38,12 +38,18 @@ namespace MattMobileDetail
 
             if (reader.HasRows == true)
             {
-                //Response.Redirect("Dashboard.aspx");
-                FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
+                HttpCookie cookie = new HttpCookie("userInfo");
+                cookie["userName"] = LoginEmail.Text;
+                cookie["auth"] = "Yes";
+
+                Response.Cookies.Add(cookie);
+
+                Response.Redirect("Dashboard.aspx");
+                
             }
             else
             {
-                FormsAuthentication.RedirectToLoginPage();
+                
                 Response.Write("Invalid Username / Password Combination");
             }
 

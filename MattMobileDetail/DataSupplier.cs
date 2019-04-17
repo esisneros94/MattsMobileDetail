@@ -3,6 +3,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 
 namespace MattMobileDetail
 {
@@ -40,6 +41,23 @@ namespace MattMobileDetail
 
 
             return PromotionsResults;
+        }
+
+        public bool VerifyAuthFromCookie(HttpCookie cookie)
+        {
+            bool indicator = false;
+
+            string isAuth = cookie["auth"];
+            if(isAuth != "Yes")
+            {
+                indicator = false;
+            }
+            else
+            {
+                indicator = true;
+            }
+
+            return indicator;
         }
     }
 }
