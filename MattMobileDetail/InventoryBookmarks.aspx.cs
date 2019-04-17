@@ -30,7 +30,7 @@ namespace MattMobileDetail
             SqlConnection dbConnection = new SqlConnection(InventoryBookmarkConnection);
 
             dbConnection.Open();
-            SqlDataAdapter InventoryBookmarkInfo = new SqlDataAdapter("Select Inventory.UPC, Inventory.Name, InventoryBookmark.Vendor, InventoryBookmark.URL From Inventory as i join InventoryBookmark as ib on ib.UPC = i.UPC", dbConnection);
+            SqlDataAdapter InventoryBookmarkInfo = new SqlDataAdapter("Select Inventory.UPC, Inventory.Name, InventoryBookmark.Vendor, InventoryBookmark.URL From Inventory, InventoryBookmark", dbConnection);
             DataTable table = new DataTable();
             InventoryBookmarkInfo.Fill(table);
             InventoryBookmarkGridView.DataSource = table;

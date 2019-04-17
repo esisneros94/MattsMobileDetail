@@ -75,7 +75,7 @@ namespace MattMobileDetail
 
 
             DataSupplier Supplier = new DataSupplier();
-            String connection = Supplier.GetWebUserConnectInfo();
+            String connection = Supplier.GetConnectionInfo();
 
 
             SqlConnection dbConnection = new SqlConnection(connection);
@@ -106,7 +106,7 @@ namespace MattMobileDetail
         private void InsertCustomerCar(int customerNumber)
         {
             DataSupplier Supplier = new DataSupplier();
-            String connection = Supplier.GetWebUserConnectInfo();
+            String connection = Supplier.GetConnectionInfo();
 
 
             SqlConnection dbConnection = new SqlConnection(connection);
@@ -131,7 +131,7 @@ namespace MattMobileDetail
         private int InsertAppointmentDetails(int customerNumber, DateTime AppointmentTime)
         {
             DataSupplier Supplier = new DataSupplier();
-            String connection = Supplier.GetWebUserConnectInfo();
+            String connection = Supplier.GetConnectionInfo();
 
 
             SqlConnection dbConnection = new SqlConnection(connection);

@@ -21,7 +21,7 @@ namespace MattMobileDetail
         private void GatherAppointmentDetails(string AppointmentID)
         {
             var supplier = new DataSupplier();
-            String connection = supplier.GetWebUserConnectInfo();
+            String connection = supplier.GetConnectionInfo();
 
             SqlConnection dbConnection = new SqlConnection(connection);
             SqlCommand command = new SqlCommand();
