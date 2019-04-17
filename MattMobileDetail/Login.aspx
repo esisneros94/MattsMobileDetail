@@ -25,7 +25,7 @@
             }
         </style>
     </head>
-    <body  onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">>
+    <body >
         <div class="jumbotron">
             <h2>Employee Login</h2>
             <asp:ValidationSummary ID="LoginErrorSummary" runat="server" DisplayMode="List" ShowSummary="true" HeaderText="Please do the following: " class="ErrorMessage" />
