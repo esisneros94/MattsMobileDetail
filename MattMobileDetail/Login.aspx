@@ -25,7 +25,7 @@
             }
         </style>
     </head>
-    <body>
+    <body  onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">>
         <div class="jumbotron">
             <h2>Employee Login</h2>
             <asp:ValidationSummary ID="LoginErrorSummary" runat="server" DisplayMode="List" ShowSummary="true" HeaderText="Please do the following: " class="ErrorMessage" />
@@ -42,8 +42,8 @@
                 <h3>Password:</h3>
                 <asp:TextBox ID="LoginPW" type="password" Columns="32" MaxLength="32" Text="" runat="server" style="width: 400px"/>
                 <asp:RequiredFieldValidator ID="requiredPassword" runat="server" ControlToValidate="LoginPW" ErrorMessage="Enter password" Class="ErrorMessage" /> 
-                <asp:RegularExpressionValidator ID="RegExPasswordCheck" runat="server" class="ErrorMessage" ErrorMessage="Invalid password" ControlToValidate="LoginPW" ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$" />
-            </div>
+                <asp:RegularExpressionValidator runat="server" ID="regexPassword" ControlToValidate="LoginPW" ErrorMessage="Invalid password" ValidationExpression="^[^<=*'>]+$" Class="ErrorMessage" /><br />
+                </div>
             <br />
             <br />
             <div>
