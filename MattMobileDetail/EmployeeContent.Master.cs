@@ -19,10 +19,8 @@ namespace MattMobileDetail
         {
             Session.Clear();
             Session.Abandon();
-            FormsAuthentication.SignOut();
             HttpContext.Current.Session.Abandon();
-            FormsAuthentication.SignOut();
-            FormsAuthentication.RedirectToLoginPage("~/Non-Members/Login");
+            Response.Redirect("~/Non-Members/Login");
 
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));

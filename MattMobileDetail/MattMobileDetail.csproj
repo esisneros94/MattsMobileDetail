@@ -118,7 +118,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Dashboard.aspx" />
+    <Content Include="Members\Dashboard.aspx" />
     <Content Include="Non-Members\Default.aspx" />
     <Content Include="Non-Members\FAQ.aspx" />
     <Content Include="favicon.ico" />
@@ -177,7 +177,9 @@
     <Content Include="Non-Members\SponsoredEvents.aspx" />
     <Content Include="Members\Transactions.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
@@ -205,11 +207,11 @@
     <Compile Include="Non-Members\Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.aspx.cs">
+    <Compile Include="Members\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Dashboard.aspx.designer.cs">
+    <Compile Include="Members\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="DataSupplier.cs" />

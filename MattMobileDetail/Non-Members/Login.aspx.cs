@@ -53,7 +53,7 @@ namespace MattMobileDetail
 
             if (reader.HasRows == true)
             {
-                Response.Redirect("Dashboard.aspx");
+                Response.Redirect("~/Members/Dashboard");
                 //FormsAuthentication.RedirectFromLoginPage(LoginEmail.Text, false);
             }
             else
