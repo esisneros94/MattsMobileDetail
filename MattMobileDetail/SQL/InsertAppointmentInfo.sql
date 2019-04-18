@@ -1,5 +1,15 @@
+USE [MobileDetail]
+GO
 
-CREATE Procedure [dbo].[InsertAppointmentInfo]
+/****** Object:  StoredProcedure [dbo].[InsertAppointmentInfo]    Script Date: 4/17/2019 7:01:25 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER Procedure [dbo].[InsertAppointmentInfo]
 	@CustomerID int
 	,@AppointmentDateTime datetime
 	,@AppointmentAddress varchar(50)
@@ -59,6 +69,6 @@ Else
 		--	Return 100;
 		--END CATCH
 	END
-GO
 
+GO
 

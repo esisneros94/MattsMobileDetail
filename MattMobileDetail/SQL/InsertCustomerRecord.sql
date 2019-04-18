@@ -1,6 +1,16 @@
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InsertCustomerRecord]    Script Date: 4/17/2019 7:01:15 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 
-CREATE Procedure [dbo].[InsertCustomerRecord]
+
+ALTER Procedure [dbo].[InsertCustomerRecord]
 	@FirstName varchar(50)
 	,@LastName varchar(50)
 	,@City	   varchar(50)
@@ -22,12 +32,12 @@ Declare @CleanEmail		varchar(40)
 
 
 Set	@CleanFirstName = LTRIM(RTRIM(@FirstName));
-Set @CleanLastName =  trim(REPLACE(@LastName,' ',''));
+Set @CleanLastName =  LTRIM(RTRIM(@LastName));
 Set @CleanCity =      LTRIM(RTRIM(@City));
 Set @CleanState =     LTRIM(RTRIM(@State));
-Set @CleanZIP =       trim(REPLACE(@ZIP,' ',''));
+Set @CleanZIP =       LTRIM(RTRIM(@ZIP));
 Set @CleanPhone =     LTRIM(RTRIM(@Phone));
-Set @CleanEmail =     trim(REPLACE(@Email,' ',''));
+Set @CleanEmail =     LTRIM(RTRIM(@Email));
 
 
 if(@CleanFirstName like '%[%;:+@]%')
@@ -73,6 +83,6 @@ Else
 
 
 
-GO
 
+GO
 

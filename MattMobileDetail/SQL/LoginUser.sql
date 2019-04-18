@@ -1,6 +1,16 @@
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[LoginUser]    Script Date: 4/17/2019 6:59:25 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 
-CREATE PROCEDURE [dbo].[LoginUser]
+
+ALTER PROCEDURE [dbo].[LoginUser]
 	@username varchar(16),
 	@password varchar(16)
 AS
@@ -29,6 +39,6 @@ From
 where 
 	UserName = @cleanusername
 	and PassKey = @password;
-GO
 
+GO
 

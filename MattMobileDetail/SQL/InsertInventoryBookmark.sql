@@ -1,3 +1,13 @@
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InsertInventoryBookmark]    Script Date: 4/17/2019 7:00:48 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 
 
 ALTER Procedure [dbo].[InsertInventoryBookmark]
@@ -14,9 +24,9 @@ as
     ,@CleanURL         varchar(1000)
 
 
-Set @CleanUPC              = trim(REPLACE(@UPC, ' ', ''));
+Set @CleanUPC              = LTRIM(RTRIM(@UPC));
 Set @CleanVendor      = LTRIM(RTRIM(@Vendor));
-Set @CleanURL       = trim(REPLACE(@URL, ' ', ''));
+Set @CleanURL       = LTRIM(RTRIM(@URL));
 
 if(@CleanUPC like '%[%;:+@*=]%')
 BEGIN
@@ -34,14 +44,8 @@ BEGIN
     Return
 END
 
-If not exists (Select * from Vendors where Name = @CleanVendor)
-    BEGIN
-        Insert into Vendors
-            Values (@CleanVendor, cast(getdate() as date), null)
-    END
-Else
-
-
+-- we need to add in the if statment to check if vendor exists in DB
+-- If exists (Select Vendor From Vendors where Vendor = @CleanVendor
 If exists (Select IB.UPC, IB.Vendor, IB.URL From MobileDetail..InventoryBookmark as IB Where UPC = @CleanUPC AND IB.URL = @CleanURL)
     BEGIN
         Print 'Invalid request'
@@ -58,3 +62,6 @@ Else
             Return 100;
         END CATCH
     END
+
+GO
+

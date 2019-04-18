@@ -1,4 +1,14 @@
-Create Procedure PopulatePromotionsTable
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[PopulatePromotionsTable]    Script Date: 4/17/2019 6:58:35 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER Procedure [dbo].[PopulatePromotionsTable]
 
 as
 
@@ -45,3 +55,5 @@ Select
 	*
 From
 	@Temp
+GO
+

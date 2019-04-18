@@ -1,9 +1,16 @@
 USE [MobileDetail]
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateInventoryBookmark]    Script Date: 4/11/2019 8:52:23 PM ******/
+
+/****** Object:  StoredProcedure [dbo].[UpdateInventoryBookmark]    Script Date: 4/17/2019 6:57:57 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 ALTER Procedure [dbo].[UpdateInventoryBookmark]
-    @UPC     varchar(60)
+    @UNC     varchar(60)
+    ,@Name          varchar(100)
     ,@Vendor       varchar(100)
     ,@URL         varchar(1000)
 
@@ -13,7 +20,7 @@ begin
 
 -- Making sure data types are correct and not manipulated
 BEGIN TRY
-    SELECT CAST(@UPC AS varchar)
+    SELECT CAST(@UNC AS varchar)
     SELECT CAST(@URL AS varchar)
 END TRY
 BEGIN CATCH
@@ -21,17 +28,22 @@ BEGIN CATCH
     return 1000;
 END CATCH
 
+
  
 --Updating the record 
     BEGIN TRY
     BEGIN TRANSACTION UpdateInventoryBookmark
-			Update InventoryBookmark
-			set 
-				URL= @URL
-			Where
-				 UPC = @UPC
-				 and Vendor = @Vendor
-    COMMIT Transaction UpdateInventoryBookmark
+         Update 
+            Inventory
+         set 
+            UNC            = @UNC
+            ,Name           = @Name
+            ,Vendor     = @Vendor
+            ,URL       = @URL
+
+         Where
+            UNC = @UNC
+    COMMIT  Transaction UpdateInventoryBookmark
     END TRY
     BEGIN Catch
             Print 'Something happened when updating'
@@ -40,3 +52,5 @@ END CATCH
 
 
 END
+GO
+

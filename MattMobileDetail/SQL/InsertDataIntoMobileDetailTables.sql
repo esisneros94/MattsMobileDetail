@@ -1,5 +1,15 @@
+USE [MobileDetail]
+GO
 
-CREATE Procedure [dbo].[InsertDataIntoMobileDetailTables]
+/****** Object:  StoredProcedure [dbo].[InsertDataIntoMobileDetailTables]    Script Date: 4/17/2019 7:01:04 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+ALTER Procedure [dbo].[InsertDataIntoMobileDetailTables]
 
 as
 
@@ -117,6 +127,6 @@ VALUES (1, 3, null, 1),
 		(2, 1, null, 1),
 		(3, 2, null, 1),
 		(4, 2, null, 1)
-GO
 
+GO
 

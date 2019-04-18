@@ -1,4 +1,14 @@
-CREATE Procedure InsertNewPromotion
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InsertNewPromotion]    Script Date: 4/17/2019 7:00:09 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER Procedure [dbo].[InsertNewPromotion]
 	@Name varchar(50)
 	,@Description varchar(max)
 	,@StartDate date
@@ -32,4 +42,7 @@ BEGIN CATCH
 	Print 'Something went wrong'
 	Return 100;
 END CATCH
+
+
+GO
 

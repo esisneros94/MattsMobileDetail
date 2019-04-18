@@ -1,3 +1,12 @@
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[UpdateInventoryItem]    Script Date: 4/17/2019 6:57:45 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 ALTER Procedure [dbo].[UpdateInventoryItem]
    @UPC     varchar(60)
@@ -43,11 +52,13 @@ END CATCH
          Where
             UPC = @UPC
     COMMIT Transaction UpdateInventory
-    END TRY
+	END TRY
     BEGIN Catch
             Print 'Something happened when updating'
-		    Rollback Transaction UpdateInventory
+            Rollback Transaction UpdateInventory
     END CATCH
 
 
 END
+GO
+

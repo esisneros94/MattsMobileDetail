@@ -1,12 +1,13 @@
 USE [MobileDetail]
 GO
 
-/****** Object:  StoredProcedure [dbo].[RetrieveBestCustomers]    Script Date: 4/14/2019 2:30:24 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBestCustomers]    Script Date: 4/17/2019 6:58:11 PM ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 ALTER Procedure [dbo].[RetrieveBestCustomers]
@@ -34,6 +35,6 @@ group by
 	,c.Email
 	,c.Phone
 
-GO
 
+GO
 

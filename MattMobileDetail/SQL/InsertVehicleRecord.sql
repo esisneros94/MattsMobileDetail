@@ -1,6 +1,16 @@
+USE [MobileDetail]
+GO
+
+/****** Object:  StoredProcedure [dbo].[InsertVehicleRecord]    Script Date: 4/17/2019 6:59:58 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
 
 
-CREATE Procedure [dbo].[InsertVehicleRecord]
+
+ALTER Procedure [dbo].[InsertVehicleRecord]
 	@CustomerID		int
 	,@Year			int
 	,@Make			varchar(50)
@@ -22,8 +32,8 @@ Declare @CleanPlateState	CHAR(2)
 Set	@CleanMake				= LTRIM(RTRIM(@Make));
 Set @CleanModel				= LTRIM(RTRIM(@Model));
 Set @CleanColor				= LTRIM(RTRIM(@Color));
-Set @CleanPlateNumber		= trim(REPLACE(@PlateNumber,' ',''));
-Set @CleanPlateState		= trim(REPLACE(@PlateState,' ',''));
+Set @CleanPlateNumber		= LTRIM(RTRIM(@PlateNumber));
+Set @CleanPlateState		= LTRIM(RTRIM(@PlateState));
 
 if(@CleanMake like '%[%;:+@*]%')
 BEGIN
@@ -72,6 +82,6 @@ Else
 
 
 
-GO
 
+GO
 
