@@ -8,6 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
 
+    <script type="text/javascript">
+    window.history.forward();
+    function noBack() {window.history.forward();}
+    </script>
+
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
@@ -94,7 +99,7 @@
         }
     </style>
 </head>
-<body>
+<body onload="noBack();" onpageshow="if (event.persisted) noBack();" onunload="">>
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -130,16 +135,18 @@
                     <ul class="nav navbar-nav">
                         <li><a class="navColor" runat="server" href="~/Dashboard">Dashboard</a></li>
                         <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
-                        <li>
+                        <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
+                        <%--<li>
                             <div class="dropdown">
                                 <button class="dropbtn">Inventory Management</button>
                                 <div class="dropdown-content">
                                     <a href="Inventory.aspx">Inventory</a>
                                     <a href="InventoryBookmarks.aspx">Inventory Bookmarks</a>
                                 </div>
-                            </div>
+                            </div>--%>
                         <li><a class="navColor" runat="server" href="~/NewPromotions">Promotion Management</a></li>
-                        <li class="navColor" runat="server">Logout</li><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
+                        <asp:button runat="server" ID="bt_logout" Text="Logout" OnClick="bt_logout_Click"  />
+                      <%--  <li class="navColor" runat="server">Logout</li>--%><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
                     </ul>
                 </div>
             </div>

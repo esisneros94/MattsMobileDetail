@@ -67,13 +67,13 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredPassword;
         
         /// <summary>
-        /// RegExPasswordCheck control.
+        /// regexPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExPasswordCheck;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPassword;
         
         /// <summary>
         /// LoginUserButton control.
