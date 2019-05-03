@@ -13,13 +13,13 @@ namespace MattMobileDetail
 
         public string GetConnectionInfo()
         {
-            string connection = ConfigurationManager.ConnectionStrings["MobileDetailOwner"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["MobileDetailConnection"].ConnectionString;
 
             return connection;
         }
         public string GetWebUserConnectInfo()
         {
-            string connection = ConfigurationManager.ConnectionStrings["WebUserRemoteConnection"].ConnectionString;
+            string connection = ConfigurationManager.ConnectionStrings["MobileDetailConnection"].ConnectionString;
 
             return connection;
         }

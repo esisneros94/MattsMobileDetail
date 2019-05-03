@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/EmployeeContent.Master" AutoEventWireup="true" CodeBehind="Transactions.aspx.cs" Inherits="MattMobileDetail.Transactions" ValidateRequest="true" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <!DOCTYPE html>
@@ -38,185 +39,115 @@
         </style>
     </head>
     <body>
-        <div class="container" style="border: 1px solid black; margin: 20px 0px; background-color: lightgrey">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div id="CustomerContent2">
-                        <h3>Enter Transaction Information</h3>
-                        First Name
-                        <asp:TextBox ID="FirstName" runat="server" Style="margin-left: 50px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="FirstName" ID="ReqFirstName" ErrorMessage=" Enter a first name!" CssClass="ErrorMessage"/>
-                        <br />
-                        <br />
-                        Last Name
-                        <asp:TextBox ID="LastName" runat="server" Style="margin-left: 50px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="LastName" ID="ReqLastName" ErrorMessage=" Enter a last name" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        City of Residence
-                        <asp:TextBox ID="CityOfResidence" runat="server" Style="margin-left: 10px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CityOfResidence" ID="ReqCity" ErrorMessage=" Enter a city" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        State of Residence
-                        <asp:TextBox ID="CustomerState" runat="server" Style="margin-left: 5px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CustomerState" ID="ReqCustomerState" ErrorMessage=" Enter a State" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        ZIP Code
-                        <asp:TextBox ID="CustomerZipCode" runat="server" Style="margin-left: 60px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CustomerZipCode" ID="ReqCustomerZip" ErrorMessage=" Enter a ZIP Code" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Phone Number:
-                        <asp:TextBox ID="PhoneNumber" runat="server" Style="margin-left: 30px;"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="PhoneNumber" ID="ReqPhoneNumber" ErrorMessage=" Enter a phone number" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Email Address:
-                        <asp:TextBox ID="EmailAddress" runat="server" Style="margin-left: 30px;"></asp:TextBox> 
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="EmailAddress" ID="ReqEmail" ErrorMessage=" Enter an email" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
+        <div id="container" style="border: 1px solid Red">
+            <div id="Finder" style="border: 1px solid black; width: 50%; float: left; ">
+                <h3>Find a Transaction</h3><br/>
+                Customer First Name: <asp:TextBox ID="CustomerFirstName" runat="server" /><br />
+                Customer Last Name: <asp:TextBox ID="CustomerLastName" runat="server" /><br />
+                Appointment Date: <asp:TextBox ID="DateSelected" runat="server"></asp:TextBox>&nbsp<asp:ImageButton ID="CalendarLogo" runat="server" Height="20px" ImageUrl="~/Pictures/CalendarImage.png" Width="20px" OnClick="CalendarLogo_Click" />
+                        <asp:Calendar ID="AppointmentDate" runat="server" OnSelectionChanged="SaveDateToTextBox" ></asp:Calendar><br />
 
-                        Previous Customer?
-                        <asp:CheckBox runat="server" ID="IsPreviousCustomer" /><%--oncheckedchanged="DisplayReturningCustomerCars" AutoPostBack="true"--%>
-                        
+                <asp:Button ID="SearchForAppointments" runat="server" Text="Search For Appointment" OnClick="SearchForAppointment" Style="width: 200px"/><br /><br />
 
-                    </div>
-                    </div>
-                    <div class="col-md-2">
-                </div>
-                <div class="col-md-5">
-                    <div id="CarInfo">
-                        <h3>What Kind of Car Will We Be Working On?</h3>
+                <asp:Panel ID="FoundAppointmentInfo" runat="server" Visible="true">
+                <b>Appointment Number:</b> <asp:Label ID="AppointmentNumberFind" runat="server" /> <br />
+                <b>Customer First Name:</b> <asp:Label ID="CustomerFirstFind" runat="server" /><br />
+                <b>Customer Last Name:</b> <asp:Label ID="CustomerLastFind" runat="server" /><br />
+                <b>Phone Number:</b> <asp:Label ID="PhoneFind" runat="server" /><br />
+                <b>Email:</b> <asp:Label ID="EmailFind" runat="server" /><br />
 
-                        <asp:PlaceHolder ID="PreviousCustomerVehicles" runat="server" Visible="false">
+                <asp:Button ID="ConfirmAppointment" runat="server" Text="Add Items To This Appointment" Style="width: 300px" OnClick="ConfirmAppointment_Click"/><br /><br />
 
-                        Your Previous Cars: <asp:DropDownList ID="PreviousCarList" runat="server" />
-                            <br />
-                            <br />
+                </asp:Panel>
+ 
+            </div>
+            
+            <div id="AddItemsToTransaction" style="border: 1px solid green; width: 50%; float: right; height: 350px" >
+               <asp:Panel ID="AdditionsToAppointment" runat="server" Visible="false">
+                    
+                   <asp:Panel ID="AddingAService" runat="server">
+                       Add a Service: <asp:RadioButton ID="ShowServices" runat="server" OnCheckedChanged="ShowServices_CheckedChanged" AutoPostBack="true"/><br />
+                   </asp:Panel>
+                
+                   <asp:Panel ID="AddingAProduct" runat="server">
+                       Add a Product: <asp:RadioButton ID="ShowProduct" runat="server" OnCheckedChanged="ShowProduct_CheckedChanged" AutoPostBack="true"/><br /><br />
+                   </asp:Panel>
+                
+                
 
-                        </asp:PlaceHolder>
+                <asp:Panel ID="ServiceInfo" runat="server" Visible ="false">
+               Add A Service To The Transaction: <asp:DropDownList ID="ServicesToAdd" runat="server" />
+               Quantity: <asp:DropDownList ID="ServiceQuantity" runat="server">
+                   <asp:ListItem Enabled="true" Text="Select Quantity" Value=""></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="1" Value="1" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="2" Value="2" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="3" Value="3" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="4" Value="4" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="5" Value="5" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="6" Value="6" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="7" Value="7" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="8" Value="8" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="9" Value="9" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="10" Value="10"></asp:ListItem>
+                   </asp:DropDownList><br />
+                </asp:Panel>
+                    
 
-                        Year:
-                        <asp:TextBox ID="CarYear" runat="server"> </asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CarYear" ID="ReqCarYear" ErrorMessage="Please enter the year of your car" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
+                <asp:Panel ID="ProductInfo" runat="server" Visible="false">
+               Add A Product To The Transaction: <asp:DropDownList ID="ProductsToAdd" runat="server" />
+               Quantity: <asp:DropDownList ID="ProductQuantity" runat="server">
+                            <asp:ListItem Enabled="true" Text="Select Quantity" Value=""></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="1" Value="1" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="2" Value="2" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="3" Value="3" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="4" Value="4" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="5" Value="5" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="6" Value="6" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="7" Value="7" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="8" Value="8" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="9" Value="9" ></asp:ListItem>
+                            <asp:ListItem Enabled="true" Text="10" Value="10" ></asp:ListItem>
+                   </asp:DropDownList><br />
 
-                        Make:
-                        <asp:TextBox ID="CarMake" runat="server"> </asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CarMake" ID="ReqCarMake" ErrorMessage="Please enter the make of your car" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Model:
-                        <asp:TextBox ID="CarModel" runat="server"> </asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CarModel" ID="ReqCarModel" ErrorMessage="Please enter the model of your car" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Color:
-                        <asp:TextBox ID="CarColor" runat="server"> </asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CarColor" ID="ReqCarColor" ErrorMessage="Please enter the color of your car" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        License Plate Number:
-                        <asp:TextBox ID="CarLicensePlateNumber" runat="server"> </asp:TextBox><br />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="CarLicensePlateNumber" ID="ReqLicensePlate" ErrorMessage="Please enter your car's license plate number" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        License Plate State:
-                        <asp:TextBox ID="LicensePlateState" runat="server"> </asp:TextBox><br />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="LicensePlateState" ID="ReqLicensePlateState" ErrorMessage="Please enter your license plate state" CssClass="ErrorMessage" />
+                </asp:Panel>
+
+                <asp:Panel ID="PanelBox" runat="server">
+                   <asp:Button ID="AddItemToTransaction" runat="server" Text="Add Item to Transaction" OnClick="AddItemToTransaction_Click" /><br /><br />
+                   <asp:Button ID="AddAnother" runat="server" Text="Add Another Item" OnClick="AddAnother_Click" />
+                    <asp:Button ID="FinishedAddingItems" runat="server" Text="Done Adding Items" OnClick="FinishedAddingItems_Click"/>
+                </asp:Panel>
+
+            </asp:Panel>
+                <asp:Panel ID="PromotionalInfo" runat="server" Visible="false">
+
+                    <h4>Items For this Transaction</h4>
+                    <div runat="server" id="ItemsListing">
 
                     </div>
 
-                </div>
+                    <asp:Panel ID="PromotionControls" runat="server">
+                            Utilize A Promotion (If Needed): <asp:DropDownList ID="PromotionalDropDown" runat="server" />
+                            <asp:Button ID="AddPromotion" runat="server" Text="Use Promotion" OnClick="AddPromotion_Click"/>
+                    </asp:Panel>
 
-                </div>
+                    <div runat="server" id="PromotionListing">
+
+                    </div>
+
+                </asp:Panel>
+
+          
+
+    
+
             </div>
 
-                <div class="container">
-            <div id="appointmentRow" class="row">
-                <asp:Panel ID="AppointmentInfo" runat="server">
-
-                    <div id="AppointmentContent" class="col-md-6 AppointmentContent">
-                        <h3>Appointment Time</h3>
-                        Appointment Date:
-                        <asp:TextBox ID="DateSelected" runat="server"></asp:TextBox>&nbsp<asp:ImageButton ID="CalendarLogo" runat="server" Height="20px" ImageUrl="~/Pictures/CalendarImage.png" Width="20px" />
-                        <asp:Calendar ID="AppointmentDate" runat="server"></asp:Calendar><br />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="DateSelected" ID="ReqAppointmentDate" ErrorMessage=" Select an appointment date" CssClass="ErrorMessage" />
-                        <br />
-                        
-                        Appointment Hour:
-                        <asp:DropDownList ID="AppointmentHour" runat="server">
-                            <asp:ListItem Enabled="true" Text="Select Hour" Value=""></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="1:00" Value="1"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="1:00" Value="2"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="3:00" Value="3"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="4:00" Value="4"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="5:00" Value="5"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="6:00" Value="6"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="7:00" Value="7"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="8:00" Value="8"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="9:00" Value="9"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="10:00" Value="10"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="11:00" Value="11"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="12:00" Value="12"></asp:ListItem>
-                        </asp:DropDownList><br />
-
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="AppointmentHour" ID="ReqAppointmentHour" ErrorMessage=" Select an hour for the appointment" CssClass="ErrorMessage" />
-                        <br />
-                        Proposed Appointment Minute:
-                        <asp:DropDownList ID="AppointmentMinute" runat="server">
-                            <asp:ListItem Enabled="true" Text="Select Minute" Value=""></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="0:00" Value="0"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="0:15" Value="15"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="0:30" Value="30"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="0:45" Value="45"></asp:ListItem>
-
-                        </asp:DropDownList><br />
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="AppointmentMinute" ID="ReqAppointmentMinute" ErrorMessage=" Select a minute interval for the appointment" CssClass="ErrorMessage" />
-                        <br />
-                        AM/PM:
-                        <asp:DropDownList ID="AppointmentDayPart" runat="server">
-                            <asp:ListItem Enabled="true" Text="AM" Value="AM"></asp:ListItem>
-                            <asp:ListItem Enabled="true" Text="PM" Value="PM"></asp:ListItem>
-                        </asp:DropDownList><br />
-                        <br />
-
-                    </div>
-                    <div id="ServiceLocation" class="col-md-6 AppointmentContent">
-                        <h3>Enter appointment location</h3>
-                        <br />
-                        Service Address:
-                        <asp:TextBox ID="ServiceAddress" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ServiceAddress" ID="ReqServiceAddress" ErrorMessage=" Select an address for service" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Service City:
-                        <asp:TextBox ID="ServiceCity" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ServiceCity" ID="ReqServiceCity" ErrorMessage=" Select a city for service" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Service State:
-                        <asp:TextBox ID="ServiceState" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ServiceState" ID="ReqServiceState" ErrorMessage=" Select a city for service" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                        Service ZIP:
-                        <asp:TextBox ID="ServiceZip" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ServiceZip" ID="ReqServiceZIP" ErrorMessage=" Enter a ZIP Code" CssClass="ErrorMessage" />
-                        <br />
-                        <br />
-                    </div>
-                    </div>
-                    </div>
-                    </asp:Panel>
         </div>
-            </body>
+    
+    
+    </body>
     </html>
 
 
-    </div>
+
 </asp:Content>

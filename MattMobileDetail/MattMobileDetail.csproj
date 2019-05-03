@@ -310,6 +310,7 @@
     <Compile Include="SponsoredEvents.aspx.designer.cs">
       <DependentUpon>SponsoredEvents.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TransactionItems.cs" />
     <Compile Include="Transactions.aspx.cs">
       <DependentUpon>Transactions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
