@@ -34,11 +34,11 @@ namespace MattMobileDetail
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
-            if (indicator == false)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            //bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
+            //if (indicator == false)
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
 
             if (!IsPostBack)
             {
@@ -121,6 +121,9 @@ namespace MattMobileDetail
             }
 
             AdditionsToAppointment.Visible = true;
+            PanelBox.Visible = false;
+            AddItemPanel.Visible = false;
+            ConfirmTransaction.Visible = false;
             PopulateProducts();
             PopulateServices();
         }
@@ -176,7 +179,7 @@ namespace MattMobileDetail
             PromotionalDropDown.DataTextField = "Name";
             PromotionalDropDown.DataValueField = "PromotionID";
             PromotionalDropDown.DataBind();
-            PromotionalDropDown.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
+            PromotionalDropDown.Items.Insert(0, new ListItem("None", "0"));
 
 
 
@@ -187,7 +190,8 @@ namespace MattMobileDetail
             AddingAService.Visible = false;
             ServiceInfo.Visible = false;
             ProductInfo.Visible = true;
-            PanelBox.Visible = true;
+            AddItemPanel.Visible = true;
+            PanelBox.Visible = false;
 
         }
 
@@ -195,8 +199,9 @@ namespace MattMobileDetail
         {
             AddingAProduct.Visible = false;
             ServiceInfo.Visible = true;
+            AddItemPanel.Visible = true;
             ProductInfo.Visible = false;
-            PanelBox.Visible = true;
+            PanelBox.Visible = false;
         }
 
         protected void AddItemToTransaction_Click(object sender, EventArgs e)
@@ -210,6 +215,10 @@ namespace MattMobileDetail
             {
                 Items.Add(new TransactionItem(ServicesToAdd.SelectedValue.ToString(), ServicesToAdd.SelectedItem.Text.ToString(), "Service", Int32.Parse(ServiceQuantity.SelectedValue.ToString())));
             }
+
+            AddItemPanel.Visible = false;
+            PanelBox.Visible = true;
+
 
         }
             
@@ -252,6 +261,60 @@ namespace MattMobileDetail
             PromotionControls.Visible = false;
             ListItems();
             PromotionListing.InnerHtml = "<b>Promotion:</b>" + PromotionalDropDown.SelectedItem.ToString();
+            ConfirmTransaction.Visible = true;
         }
+
+        protected void InsertTransaction_Click(object sender, EventArgs e)
+        {
+            String TransactionConnection = supplier.GetConnectionInfo();
+
+            SqlConnection connection = new SqlConnection(TransactionConnection);
+            SqlCommand InsertTransaction = new SqlCommand();
+            InsertTransaction.Connection = connection;
+            InsertTransaction.CommandText = "AddTransactionForAppointment";
+            InsertTransaction.CommandType = CommandType.StoredProcedure;
+
+            InsertTransaction.Parameters.AddWithValue("@AppointmentID", AppointmentNumberFind.Text.ToString());
+            InsertTransaction.Parameters.AddWithValue("@PromotionID", PromotionalDropDown.SelectedValue.ToString());
+            InsertTransaction.Parameters.AddWithValue("@PaymentMethod", "Cash");
+
+
+            try
+            {
+                connection.Open();
+                int TransactionID = Convert.ToInt32(InsertTransaction.ExecuteScalar());
+
+                foreach (TransactionItem item in Items)
+                {
+
+                        SqlCommand InsertTransactionItem = new SqlCommand();
+                        InsertTransactionItem.Connection = connection;
+                        InsertTransactionItem.CommandText = "AddItemToTransaction";
+                        InsertTransactionItem.CommandType = CommandType.StoredProcedure;
+
+
+                    InsertTransactionItem.Parameters.AddWithValue("@TransactionID", TransactionID);
+                    InsertTransactionItem.Parameters.AddWithValue("@ItemID", item.ID);
+                    InsertTransactionItem.Parameters.AddWithValue("@Name", item.Name);
+                    InsertTransactionItem.Parameters.AddWithValue("@ItemType", item.ItemType);
+                    InsertTransactionItem.Parameters.AddWithValue("@Quantity", item.Quantity);
+
+                    InsertTransactionItem.ExecuteNonQuery();
+
+                }
+                connection.Close();
+
+
+                Response.Write("<script>alert('Transaction Submitted Successfully!');</script>");
+        }
+            catch
+            {
+                connection.Close();
+                Response.Write("<script>alert('Ooops! Something went wrong. Try Again!');</script>");
+                Response.Redirect("Transactions.aspx");
+            }
+
+
+}
     }
 }

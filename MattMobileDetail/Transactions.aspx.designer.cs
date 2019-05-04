@@ -22,6 +22,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.TextBox CustomerFirstName;
         
         /// <summary>
+        /// RequiredSearchFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredSearchFirstName;
+        
+        /// <summary>
         /// CustomerLastName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CustomerLastName;
+        
+        /// <summary>
+        /// RequiredSearchLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredSearchLastName;
         
         /// <summary>
         /// DateSelected control.
@@ -47,6 +65,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton CalendarLogo;
+        
+        /// <summary>
+        /// RequiredSearchDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredSearchDate;
         
         /// <summary>
         /// AppointmentDate control.
@@ -193,6 +220,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList ServicesToAdd;
         
         /// <summary>
+        /// RequiredServiceName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredServiceName;
+        
+        /// <summary>
         /// ServiceQuantity control.
         /// </summary>
         /// <remarks>
@@ -200,6 +236,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ServiceQuantity;
+        
+        /// <summary>
+        /// RequiredServiceQuantity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredServiceQuantity;
         
         /// <summary>
         /// ProductInfo control.
@@ -220,6 +265,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList ProductsToAdd;
         
         /// <summary>
+        /// RequiredProductName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredProductName;
+        
+        /// <summary>
         /// ProductQuantity control.
         /// </summary>
         /// <remarks>
@@ -229,13 +283,22 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.DropDownList ProductQuantity;
         
         /// <summary>
-        /// PanelBox control.
+        /// RequiredProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelBox;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredProductQuantity;
+        
+        /// <summary>
+        /// AddItemPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel AddItemPanel;
         
         /// <summary>
         /// AddItemToTransaction control.
@@ -245,6 +308,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button AddItemToTransaction;
+        
+        /// <summary>
+        /// PanelBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelBox;
         
         /// <summary>
         /// AddAnother control.
@@ -317,5 +389,23 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl PromotionListing;
+        
+        /// <summary>
+        /// ConfirmTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel ConfirmTransaction;
+        
+        /// <summary>
+        /// InsertTransaction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button InsertTransaction;
     }
 }

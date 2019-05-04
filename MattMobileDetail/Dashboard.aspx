@@ -112,6 +112,7 @@
                 <asp:TemplateField HeaderText="Status">
                     <EditItemTemplate>
                         <asp:DropDownList ID="DropDownList1" runat="server">
+                            <asp:ListItem>Please Select...</asp:ListItem>
                             <asp:ListItem>Pending</asp:ListItem>
                             <asp:ListItem>Completed</asp:ListItem>
                             <asp:ListItem>Scheduled</asp:ListItem>

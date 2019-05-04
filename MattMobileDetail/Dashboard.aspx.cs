@@ -16,24 +16,24 @@ namespace MattMobileDetail
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
-            if(indicator == false)
-            {
-                Response.Redirect("Login.aspx");
-            }
-
+            //bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
+            //if (indicator == false)
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
 
             if (!IsPostBack)
             {
                 PopulateEventStatusFilter();
-                PopulatePendingAppointments();
-                PopulateBestCustomersGridView();
+                PopulatePendingAppointments(EventStatusList.SelectedValue.ToString());
                 PopulateInventoryLevels();
             }
 
+            PopulateBestCustomersGridView();
+
         }
 
-        private void PopulatePendingAppointments(string StatusToUse = "Completed")
+        private void PopulatePendingAppointments(string StatusToUse)
         {
 
             String InventoryConnection = supplier.GetConnectionInfo();
@@ -134,24 +134,26 @@ namespace MattMobileDetail
             EventStatusList.DataTextField = "eventStatus";
             EventStatusList.DataValueField = "eventStatus";
             EventStatusList.DataBind();
+            EventStatusList.Items.Insert(0, new ListItem("Please Select. . . ", "0"));
 
         }
 
         protected void PendingAppointmentsGridView_RowEditing(object sender, GridViewEditEventArgs e)
         {
             PendingAppointmentsGridView.EditIndex = e.NewEditIndex;
-            PopulatePendingAppointments();
+            PopulatePendingAppointments(EventStatusList.SelectedValue.ToString());
         }
 
         protected void PendingAppointmentsGridView_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             PendingAppointmentsGridView.EditIndex = -1;
-            PopulatePendingAppointments();
+            PopulatePendingAppointments(EventStatusList.SelectedValue.ToString());
         }
         protected void PendingAppointmentsGridView_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             String InventoryConnection = supplier.GetConnectionInfo();
 
+            String SelectedItem = (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("DropDownList1") as DropDownList).SelectedItem.Value.ToString();
 
             SqlConnection updateConnection = new SqlConnection(InventoryConnection);
             SqlCommand updateEstablishment = new SqlCommand();
@@ -166,13 +168,13 @@ namespace MattMobileDetail
             updateEstablishment.Parameters.AddWithValue("@AptCity", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentCity") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@AptState", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentState") as TextBox).Text.Trim());
             updateEstablishment.Parameters.AddWithValue("@AptZIP", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("txtAppointmentZIP") as TextBox).Text.Trim());
-            updateEstablishment.Parameters.AddWithValue("@EventStatus", (PendingAppointmentsGridView.Rows[e.RowIndex].FindControl("DropDownList1") as DropDownList).SelectedItem.Value);
+            updateEstablishment.Parameters.AddWithValue("@EventStatus", SelectedItem);
 
 
             updateConnection.Open();
             updateEstablishment.ExecuteNonQuery();
             PendingAppointmentsGridView.EditIndex = -1;
-            PopulatePendingAppointments();
+            PopulatePendingAppointments("Pending");
             lblSucess.Text = "Row Updated";
             lblError.Text = "";
             updateConnection.Close();
