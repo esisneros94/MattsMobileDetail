@@ -140,8 +140,11 @@
     <Content Include="Login.aspx" />
     <Content Include="NewPromotions.aspx" />
     <Content Include="Pictures\CalendarImage.png" />
+    <Content Include="Pictures\facebook.png" />
+    <Content Include="Pictures\instagram.png" />
     <Content Include="Pictures\Matts Car Logo.jpg" />
     <Content Include="Pictures\Matts Writing Logo.jpg" />
+    <Content Include="Pictures\snapchat.png" />
     <Content Include="Reviews.aspx" />
     <Content Include="ScheduleAppointment.aspx" />
     <Content Include="Scripts\bootstrap.js" />

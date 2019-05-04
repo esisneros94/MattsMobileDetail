@@ -40,5 +40,20 @@ namespace MattMobileDetail
         {
             Response.Redirect("ScheduleAppointment.aspx");
         }
+
+        protected void btFacebook_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("https://www.facebook.com/MattsMobileDetailingABQ/");
+        }
+
+        protected void ntInstagram_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("https://www.instagram.com/matts_mobile_detail/");
+        }
+
+        protected void btSnapchat_Click(object sender, ImageClickEventArgs e)
+        {
+            //Response.Redirect("snapchat.com/add/mo9omick");
+        }
     }
 }
