@@ -70,9 +70,6 @@
         }
     </style>
 
-
-
-
     <style>
         .title {
             color: darkblue;
@@ -96,6 +93,7 @@
         .navColor {
             background-color: darkblue;
             color: white !important;
+            text-align:center;
         }
     </style>
 </head>
@@ -129,24 +127,17 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing</a>
+                    <%--<a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing</a>--%>
+                    <asp:Label runat="server" class="navColor" Text="Matt's Mobile Detailing" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a class="navColor" runat="server" href="~/Dashboard">Dashboard</a></li>
                         <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
-                        <%--<li>
-                            <div class="dropdown">
-                                <button class="dropbtn">Inventory Management</button>
-                                <div class="dropdown-content">
-                                    <a href="Inventory.aspx">Inventory</a>
-                                    <a href="InventoryBookmarks.aspx">Inventory Bookmarks</a>
-                                </div>
-                            </div>--%>
                         <li><a class="navColor" runat="server" href="~/NewPromotions">Promotion Management</a></li>
-                        <asp:button runat="server" ID="bt_logout" Text="Logout" OnClick="bt_logout_Click"  />
-                      <%--  <li class="navColor" runat="server">Logout</li>--%><%--<a class="navColor" runat="server" href="~/Logout">Logout</li>--%>
+                        <asp:button class="navColor" runat="server" ID="bt_logout" Text="Logout" OnClick="bt_logout_Click"  />
+
                     </ul>
                 </div>
             </div>
@@ -159,7 +150,7 @@
             <footer class="footer">
                 <%--<p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>--%>
                 <p></p>
-                <p>Contact Matt: 505-XXX-XXXX or MMD@MMD.com</p>
+                <p>Contact Matt: 505-217-5417 or MMD@MMD.com</p>
             </footer>
         </div>
 
