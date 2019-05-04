@@ -34,15 +34,15 @@ namespace MattMobileDetail
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
-            //if (indicator == false)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
+            bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
+            if (indicator == false)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
             if (!IsPostBack)
             {
-              Session["ItemsList"] = new List<TransactionItem>();
+                Session["ItemsList"] = new List<TransactionItem>();
             }
 
         }
@@ -109,13 +109,13 @@ namespace MattMobileDetail
                 PhoneFind.Text = dr[3].ToString();
                 EmailFind.Text = dr[4].ToString();
             }
-            
+
             SearchConnection.Close();
         }
 
         protected void ConfirmAppointment_Click(object sender, EventArgs e)
         {
-            if(AppointmentNumberFind.Text == "" )
+            if (AppointmentNumberFind.Text == "")
             {
                 return;
             }
@@ -221,7 +221,7 @@ namespace MattMobileDetail
 
 
         }
-            
+
 
         protected void AddAnother_Click(object sender, EventArgs e)
         {
@@ -242,7 +242,7 @@ namespace MattMobileDetail
 
             foreach (TransactionItem things in Items)
             {
-                ItemsListing.InnerHtml += "<b>Item:</b>"+ things.Name + "<br/>";
+                ItemsListing.InnerHtml += "<b>Item:</b>" + things.Name + "<br/>";
             }
         }
 
@@ -279,42 +279,43 @@ namespace MattMobileDetail
             InsertTransaction.Parameters.AddWithValue("@PaymentMethod", "Cash");
 
 
-            try
+            //try
+            //{
+            connection.Open();
+            int TransactionID = Convert.ToInt32(InsertTransaction.ExecuteScalar());
+
+            foreach (TransactionItem item in Items)
             {
-                connection.Open();
-                int TransactionID = Convert.ToInt32(InsertTransaction.ExecuteScalar());
 
-                foreach (TransactionItem item in Items)
-                {
-
-                        SqlCommand InsertTransactionItem = new SqlCommand();
-                        InsertTransactionItem.Connection = connection;
-                        InsertTransactionItem.CommandText = "AddItemToTransaction";
-                        InsertTransactionItem.CommandType = CommandType.StoredProcedure;
+                SqlCommand InsertTransactionItem = new SqlCommand();
+                InsertTransactionItem.Connection = connection;
+                InsertTransactionItem.CommandText = "AddItemToTransaction";
+                InsertTransactionItem.CommandType = CommandType.StoredProcedure;
 
 
-                    InsertTransactionItem.Parameters.AddWithValue("@TransactionID", TransactionID);
-                    InsertTransactionItem.Parameters.AddWithValue("@ItemID", item.ID);
-                    InsertTransactionItem.Parameters.AddWithValue("@Name", item.Name);
-                    InsertTransactionItem.Parameters.AddWithValue("@ItemType", item.ItemType);
-                    InsertTransactionItem.Parameters.AddWithValue("@Quantity", item.Quantity);
+                InsertTransactionItem.Parameters.AddWithValue("@TransactionID", TransactionID);
+                InsertTransactionItem.Parameters.AddWithValue("@ItemID", item.ID);
+                InsertTransactionItem.Parameters.AddWithValue("@Name", item.Name);
+                InsertTransactionItem.Parameters.AddWithValue("@ItemType", item.ItemType);
+                InsertTransactionItem.Parameters.AddWithValue("@Quantity", item.Quantity);
 
-                    InsertTransactionItem.ExecuteNonQuery();
+                InsertTransactionItem.ExecuteNonQuery();
 
-                }
-                connection.Close();
-
-
-                Response.Write("<script>alert('Transaction Submitted Successfully!');</script>");
-        }
-            catch
-            {
-                connection.Close();
-                Response.Write("<script>alert('Ooops! Something went wrong. Try Again!');</script>");
-                Response.Redirect("Transactions.aspx");
             }
+            connection.Close();
+
+            string EncryptedString = EncryptionSupplier.GetEncryptedQueryString(TransactionID.ToString());
+
+            Response.Redirect("TransactionConfirmation.aspx?Transaction=" + EncryptedString);
+
+        }
+        //catch
+        //{
+        //    connection.Close();
+        //    Response.Write("<script>alert('Ooops! Something went wrong. Try Again!');</script>");
+        //    Response.Redirect("Transactions.aspx");
+        //}
 
 
-}
     }
 }

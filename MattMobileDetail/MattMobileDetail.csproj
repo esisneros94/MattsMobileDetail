@@ -179,6 +179,7 @@
     <Content Include="Services_MMD.png" />
     <Content Include="Site.Master" />
     <Content Include="SponsoredEvents.aspx" />
+    <Content Include="TransactionConfirmation.aspx" />
     <Content Include="Transactions.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -312,6 +313,13 @@
     </Compile>
     <Compile Include="SponsoredEvents.aspx.designer.cs">
       <DependentUpon>SponsoredEvents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionConfirmation.aspx.cs">
+      <DependentUpon>TransactionConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionConfirmation.aspx.designer.cs">
+      <DependentUpon>TransactionConfirmation.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionItems.cs" />
     <Compile Include="Transactions.aspx.cs">

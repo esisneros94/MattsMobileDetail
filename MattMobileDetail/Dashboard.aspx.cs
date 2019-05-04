@@ -16,11 +16,11 @@ namespace MattMobileDetail
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            //bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
-            //if (indicator == false)
-            //{
-            //    Response.Redirect("Login.aspx");
-            //}
+            bool indicator = supplier.VerifyAuthFromCookie(Request.Cookies["userInfo"]);
+            if (indicator == false)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
             if (!IsPostBack)
             {
