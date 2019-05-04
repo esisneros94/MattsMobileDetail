@@ -101,7 +101,8 @@
                 <br />
                 Appointment Date:
                 <asp:TextBox ID="DateSelected" runat="server"></asp:TextBox>&nbsp<asp:ImageButton ID="CalendarLogo" runat="server" Height="20px" ImageUrl="~/Pictures/CalendarImage.png" Width="20px" OnClick="CalendarLogo_Click" />
-                <asp:RequiredFieldValidator ID="RequiredSearchDate" CssClass="ErrorMessage" ControlToValidate="DateSelected" runat="server" ErrorMessage="Select/Input a date" ValidationGroup="InitialSearch"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator ID="RequiredSearchDate" CssClass="ErrorMessage" ControlToValidate="DateSelected" runat="server" ErrorMessage="Select/Insert date" ValidationGroup="InitialSearch"></asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CheckSearchDateType" CssClass="ErrorMessage" ControlToValidate="DateSelected" runat="server" ErrorMessage="MM/DD/YYY format required" ValidationGroup="InitialSearch" Operator="DataTypeCheck" Type="Date" />
                 <asp:Calendar ID="AppointmentDate" BackColor="White" runat="server" OnSelectionChanged="SaveDateToTextBox"></asp:Calendar>
                 <br />
                 <br />
