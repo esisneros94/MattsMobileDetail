@@ -130,17 +130,8 @@
                     <ul class="nav navbar-nav">
                         <li><a class="navColor" runat="server" href="Services.aspx">Services</a></li>
                         <li><a class="navColor" runat="server" href="~/ScheduleAppointment">Schedule Appointment</a></li>
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn">Media</button>
-                                <div class="dropdown-content">
-                                    <a href="Reviews.aspx">Reviews</a>
-                                    <a href="SponsoredEvents.aspx">Sponsored Events</a>
-                                </div>
-                            </div>
-
-                            <li><a class="navColor" runat="server" href="~/FAQ">FAQs</a></li>
-                        <li><a class="navColor" runat="server" href="~/Contact">Contact</a></li>
+                        <li><a class="navColor" runat="server" href="~/Reviews">Reviews</a></li>
+                        <li><a class="navColor" runat="server" href="~/FAQ">FAQs</a></li>
                         <li><a class="navColor" runat="server" href="~/Login">Login</a></li>
                     </ul>
                 </div>
