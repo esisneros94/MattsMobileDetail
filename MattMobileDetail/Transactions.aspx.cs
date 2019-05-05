@@ -13,7 +13,7 @@ namespace MattMobileDetail
     {
         DataSupplier supplier = new DataSupplier();
 
-        public List<TransactionItem> Items
+        public new List<TransactionItem> Items
         {
             get
             {
