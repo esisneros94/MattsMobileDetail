@@ -149,8 +149,8 @@
                     <div id="AppointmentContent" class="col-md-6 AppointmentContent">
                         <h3>Proposed Appointment Time</h3>
                         Proposed Appointment Date:
-                        <asp:TextBox ID="DateSelected" runat="server"></asp:TextBox>&nbsp<asp:ImageButton ID="CalendarLogo" runat="server" Height="20px" ImageUrl="~/Pictures/CalendarImage.png" Width="20px" OnClick="ToggleCalendarControl" />
-                        <asp:Calendar ID="AppointmentDate" runat="server" OnSelectionChanged="SaveDateToTextBox"></asp:Calendar><br />
+                        <asp:TextBox ID="DateSelected" runat="server"></asp:TextBox>&nbsp<asp:ImageButton ID="CalendarLogo" runat="server" Height="20px" ImageUrl="~/Pictures/CalendarImage.png" Width="20px" OnClick="ToggleCalendarControl" CausesValidation="false" />
+                        <asp:Calendar ID="AppointmentDate" BackColor="White" runat="server" OnSelectionChanged="SaveDateToTextBox"></asp:Calendar><br />
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="DateSelected" ID="ReqAppointmentDate" ErrorMessage="Please select an appointment date" CssClass="ErrorMessage" />
                         <br />
                         

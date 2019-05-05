@@ -128,7 +128,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <%--<a class="navbar-brand  navColor" runat="server" href="~/">Matt's Mobile Detailing</a>--%>
-                    <asp:Label runat="server" class="navColor" Text="Matt's Mobile Detailing" />
+                    <asp:Label runat="server" class="navbar-brand  navColor" Text="Matt's Mobile Detailing" />
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -136,7 +136,7 @@
                         <li><a class="navColor" runat="server" href="~/Transactions">Transaction Management</a></li>
                         <li><a class="navColor" runat="server" href="~/Inventory">Inventory Management</a></li>
                         <li><a class="navColor" runat="server" href="~/NewPromotions">Promotion Management</a></li>
-                        <asp:button class="navColor" runat="server" ID="bt_logout" Text="Logout" OnClick="bt_logout_Click"  />
+                        <li><asp:LinkButton class="navColor" runat="server" ID="btlogout" Text="Logout" OnClick="bt_logout_Click" /></li>
 
                     </ul>
                 </div>

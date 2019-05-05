@@ -13,13 +13,13 @@ namespace MattMobileDetail {
     public partial class EmployeeContent {
         
         /// <summary>
-        /// bt_logout control.
+        /// btlogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bt_logout;
+        protected global::System.Web.UI.WebControls.LinkButton btlogout;
         
         /// <summary>
         /// MainContent control.

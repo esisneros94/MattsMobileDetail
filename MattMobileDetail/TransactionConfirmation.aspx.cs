@@ -21,7 +21,7 @@ namespace MattMobileDetail
         private void GetTransactionSummary(string transactionID)
         {
             var supplier = new DataSupplier();
-            String connection = supplier.GetWebUserConnectInfo();
+            String connection = supplier.GetConnectionInfo();
 
             SqlConnection dbConnection = new SqlConnection(connection);
             SqlCommand TransactionSummary = new SqlCommand();
