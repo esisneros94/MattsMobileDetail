@@ -16,14 +16,20 @@ namespace MattMobileDetail
 
         protected void bt_logout_Click(object sender, EventArgs e)
         {
+            if (Request.Cookies["userInfo"] != null)
+            {
+                Response.Cookies["userInfo"].Expires = DateTime.Now;
+            }
+
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.Cache.SetExpires(DateTime.UtcNow);
+            Response.Cache.SetNoStore();
+
             Session.Clear();
             Session.Abandon();
             HttpContext.Current.Session.Abandon();
             Response.Redirect("Login.aspx");
 
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            Response.Cache.SetExpires(DateTime.UtcNow.AddHours(-1));
-            Response.Cache.SetNoStore();
-        }
+        }            
     }
 }
