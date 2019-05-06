@@ -10,7 +10,7 @@ namespace MattMobileDetail
 {
     public class EncryptionSupplier
     {
-        private static string Key = "ABC123DEF456GH78";
+        private static string Key = "ABC123DEF456GH78"; 
         private static byte[] GetByte(string data)
         {
             return Encoding.UTF8.GetBytes(data);

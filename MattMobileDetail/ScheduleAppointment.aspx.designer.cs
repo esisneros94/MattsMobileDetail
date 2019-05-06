@@ -121,6 +121,15 @@ namespace MattMobileDetail {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqPhoneNumber;
         
         /// <summary>
+        /// RexExPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RexExPhone;
+        
+        /// <summary>
         /// EmailAddress control.
         /// </summary>
         /// <remarks>
@@ -182,6 +191,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqCarYear;
+        
+        /// <summary>
+        /// RegCarYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegCarYear;
         
         /// <summary>
         /// CarMake control.
@@ -443,6 +461,15 @@ namespace MattMobileDetail {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator ReqServiceZIP;
+        
+        /// <summary>
+        /// RegServiceZip control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegServiceZip;
         
         /// <summary>
         /// ConfirmButton control.

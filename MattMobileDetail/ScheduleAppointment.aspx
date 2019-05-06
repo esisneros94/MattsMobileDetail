@@ -72,6 +72,8 @@
                         Phone Number:
                         <asp:TextBox ID="PhoneNumber" runat="server" Style="margin-left: 30px;"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="PhoneNumber" ID="ReqPhoneNumber" ErrorMessage="Please enter your phone number" CssClass="ErrorMessage" />
+                        <asp:RegularExpressionValidator ID="RexExPhone" ControlToValidate="PhoneNumber" runat="server" ErrorMessage="Format must be XXX-XXX-XXXX" CssClass="ErrorMessage" ValidationExpression="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}" />
+            
                         <br />
                         <br />
                         Email Address:
@@ -105,6 +107,7 @@
                         Year:
                         <asp:TextBox ID="CarYear" runat="server"> </asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="CarYear" ID="ReqCarYear" ErrorMessage="Please enter the year of your car" CssClass="ErrorMessage" />
+                        <asp:RegularExpressionValidator runat="server" ControlToValidate="CarYear" ID="RegCarYear" ErrorMessage="Car Year must be a number" CssClass="ErrorMessage" ValidationExpression="^\d+$" />
                         <br />
                         <br />
 
@@ -213,6 +216,7 @@
                         Service ZIP:
                         <asp:TextBox ID="ServiceZip" runat="server"></asp:TextBox>
                         <asp:RequiredFieldValidator runat="server" ControlToValidate="ServiceZip" ID="ReqServiceZIP" ErrorMessage="Please enter a ZIP Codes" CssClass="ErrorMessage" />
+                        <asp:RegularExpressionValidator runat="server" ControlToValidate="ServiceZip" ID="RegServiceZip" ErrorMessage="Enter a valid Zip Code" CssClass="ErrorMessage" ValidationExpression="^\d{5}$" />
                         <br />
                         <br />
                     </div>
