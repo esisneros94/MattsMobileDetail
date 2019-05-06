@@ -49,8 +49,8 @@ namespace MattMobileDetail
             }
             else
             {
-                
-                Response.Write("Invalid Username / Password Combination");
+
+                FinalError.Text = "Credentials are not correct. Please try again!";
             }
 
             dbConnection.Close();

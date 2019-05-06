@@ -27,6 +27,7 @@
     </head>
     <body >
         <div class="jumbotron">
+            <asp:Label ID="FinalError" runat="server" Text="" CssClass="ErrorMessage"></asp:Label>
             <h2>Employee Login</h2>
             <asp:ValidationSummary ID="LoginErrorSummary" runat="server" DisplayMode="List" ShowSummary="true" HeaderText="Please do the following: " class="ErrorMessage" />
 
