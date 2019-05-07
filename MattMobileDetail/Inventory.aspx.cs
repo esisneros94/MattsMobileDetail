@@ -192,6 +192,7 @@ namespace MattMobileDetail
             insertEstablishment.ExecuteNonQuery();
             InventoryBookmarkGridView.EditIndex = -1;
             PopulateGridView();
+            PopulateBookMarkGridView();
             insertConnection.Close();
         }
 
@@ -214,6 +215,7 @@ namespace MattMobileDetail
             updateEstablishment.ExecuteNonQuery();
             InventoryBookmarkGridView.EditIndex = -1;
             PopulateGridView();
+            PopulateBookMarkGridView();
             updateConnection.Close();
 
         }
@@ -222,7 +224,6 @@ namespace MattMobileDetail
         {
             selectedItem = DropDownItems.SelectedItem.ToString();
             PopulateVendorNametoBookmarkEdit(DropDownItems.SelectedValue);
-            PopulateItemstoBookmarkEdit();
             ItemSelected.Text = selectedItem;
         }
 
